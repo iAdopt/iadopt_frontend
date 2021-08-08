@@ -9,7 +9,7 @@ export interface CatsMainPageProps {
 const Admin = () => {
     return(
         <>
-        <h1>This is Administrator Page</h1>
+        <h1>This is Loging/Home Administrator Page -- LOGIN ? </h1>
         </>
     )
 }

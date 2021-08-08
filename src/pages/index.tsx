@@ -1,7 +1,15 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
+import logo from '../../public/logo.svg'
+import catImg from '../../public/cat.svg'
+import dogImg from '../../public/dog.svg'
+import allImg from '../../public/all.svg'
+import centerImg from '../../public/center.png'
+
+import { HomeBoxLink } from '../common/components/HomeBoxLink'
+import { Footer } from '../common/components/Footer'
+
 
 export default function Home() {
   return (
@@ -9,59 +17,42 @@ export default function Home() {
       <Head>
         <title>iAdopt</title>
         <meta name="description" content="Plataforma de adopción que pone en contacto protectoras y adoptantes" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />=
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-         Welcome to iAdopt
-        </h1>
-
-        <p className={styles.description}>
-          Get started 
-          <code className={styles.code}>to find your animal</code>
-        </p>
-
-        <div className={styles.grid}>
-          <Link href="./cats">
-            <div className={styles.card}>
-              <h2>CATS</h2>
-              <p>All cats available here</p>
-            </div>
-          </Link>
-          <Link href="./dogs">
-            <div className={styles.card}>
-              <h2>DOGS &rarr;</h2>
-              <p>All cats available here</p>
-            </div>
-          </Link>
-          <Link href="./all">
-            <div className={styles.card}>
-              <h2>ALL &rarr;</h2>
-              <p>All cats available here</p>
-            </div>
-          </Link>
-          <Link href="./centers">
-            <div className={styles.card}>
-              <h2>CENTERS &rarr;</h2>
-              <p>All cats available here</p>
-            </div>
-            </Link>
+        <div className={styles.home_section}>
+          <Image src={logo} alt="iAdopt"/>
+          <div className={styles.text}>
+              <p>iAdopt te facilita encontrar al animal que buscas. Pone en contacto protectoras y asociaciones con los adoptantes para facilitar todo el proceso de adopción</p>
+          </div>
+          <h3 className={styles.description}>¿En qué podemos ayudarte?</h3>
         </div>
-      </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/favicon.ico" alt="iAdopt" width={50} height={50} />
-          </span>
-        </a>
-      </footer>
+        <div className={styles.linkboxes}>
+          <HomeBoxLink 
+            path='/cats' 
+            pathImage={catImg}
+            altImage='Ver gatos'
+          />
+          <HomeBoxLink 
+            path='/dogs' 
+            pathImage={dogImg}
+            altImage='Ver perros'
+          />
+          <HomeBoxLink 
+            path='/animals' 
+            pathImage={allImg}
+            altImage='Ver todos los animales'
+          />
+          <HomeBoxLink 
+            path='/centers' 
+            pathImage={centerImg}
+            altImage='Ver centros'
+          />
+        </div>
+        <Footer />
+      </main>
     </div>
   )
 }

@@ -1,0 +1,65 @@
+@import 'global.scss';
+
+.main, .container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: $main-color;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    @include forPhoneUp {
+        background-color: white;
+    }
+}
+
+.home_section {
+    padding: $medianil;
+    @include forTabletUp {
+        background-color: $main-color;
+        height: 715px;
+        padding: $medianil * 2;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .text {
+        padding: $medianil $medianil;
+        text-align: left;
+        p {
+            font-family: $font-1;
+            font-size: $medianil;
+        }
+        @include forTabletUp {
+            padding: $medianil $medianil * 3;
+            margin-top: 40px;
+            p {
+                font-size: $medianil * 1.9;    
+            }
+        }
+        @include forTabletOnly {
+            max-width: 80%;
+
+        }
+        @include forDesktopUp {
+            max-width: 50%;
+
+        }
+
+    }
+    .description {
+        text-align: center;
+        font-family: $font-1;
+        font-size: $medianil * 1.4;
+        @include forTabletUp {
+            font-size: $medianil * 2.5;
+        }
+    }
+}
+
+.linkboxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    @include forTabletUp {
+        margin-top: -120px;
+        z-index: 1;
+    }
+}

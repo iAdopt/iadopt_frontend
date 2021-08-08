@@ -1,5 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import catImg from '../../public/catPageImg.svg'
+import { Header } from '../common/components/Header'
+import { TextAndImg } from '../common/components/atoms/TextAndImg/index'
+
 
 export interface CatsMainPageProps {
     className?: any;
@@ -9,7 +12,21 @@ export interface CatsMainPageProps {
 const Cats = () => {
     return(
         <>
-        <h1>This is Cats Page</h1>
+        <Head>
+            <title>iAdopt Cats</title>
+            <meta name="description" content="Plataforma de adopción que pone en contacto protectoras y adoptantes" />
+        </Head>
+        <main>
+            <Header
+                path='/'
+                text="Inicio"
+            />
+        <TextAndImg 
+            title="Gatos"
+            img={catImg}
+        />
+
+        </main>
         </>
     )
 }

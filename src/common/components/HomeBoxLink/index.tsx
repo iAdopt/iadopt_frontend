@@ -15,10 +15,10 @@ export const HomeBoxLink: React.FC<Props> = ({
     ...props
 }) => {
     return(
-        <div className={styles.boxlink}>
-            <Link href={path} passHref={true}>
+        <Link href={path} passHref={true}>
+            <div className={styles.boxlink}>
                 <Image className={styles.image} src={pathImage} alt={altImage} />
-            </Link>
-        </div>
+            </div>
+        </Link>
     )
 }

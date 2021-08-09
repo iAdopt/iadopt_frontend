@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from './Style.module.scss';
-import logo from './logo.svg'
-import back from './back.svg'
+import logo from './assets/logo.svg'
+import back from './assets/back.svg'
 import { useRouter } from "next/router"
 
 

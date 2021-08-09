@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import dogImg from '../../public/dogPageImg.svg'
+import centrosImg from '../../public/centrosPageImg.svg'
 import { Header } from '../common/components/Header'
 import { TitleAndImg } from '../common/components/atoms/TitleAndImg/index'
 
@@ -9,11 +9,11 @@ export interface CatsMainPageProps {
     loading?:boolean;
     id?:string;
 }
-const Dogs = () => {
+const Animals = () => {
     return(
         <>
         <Head>
-            <title>iAdopt Dogs</title>
+            <title>iAdopt Animals</title>
             <meta name="description" content="Plataforma de adopción que pone en contacto protectoras y adoptantes" />
         </Head>
         <main>
@@ -22,12 +22,12 @@ const Dogs = () => {
                 text="Inicio"
             />
         <TitleAndImg 
-            title="Perros"
-            img={dogImg}
+            title="Centros de Adopción"
+            img={centrosImg}
         />
 
         </main>
         </>
     )
 }
-export default Dogs
+export default Animals

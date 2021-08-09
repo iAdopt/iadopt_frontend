@@ -46,7 +46,7 @@ export default function Home() {
             altImage='Ver todos los animales'
           />
           <HomeBoxLink 
-            path='/centers' 
+            path='/centros' 
             pathImage={centerImg}
             altImage='Ver centros'
           />

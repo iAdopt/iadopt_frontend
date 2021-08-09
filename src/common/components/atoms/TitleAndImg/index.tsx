@@ -7,15 +7,15 @@ export interface Props {
     title: string
 }
 
-export const TextAndImg: React.FC<Props> = ({
+export const TitleAndImg: React.FC<Props> = ({
     title,
     img,
-    ...props
+    ...propss
 }) => {
     return(
-        <>
-            <Image src={img} alt={title} width="120px" height="120px"/>
+        <div className={styles.titleImg}>
+            <Image src={img} alt={title} width="100px" height="100px"/>
             <h1>{title}</h1>
-        </>
+        </div>
     )
 }

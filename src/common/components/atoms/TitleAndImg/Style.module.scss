@@ -1,0 +1,13 @@
+@import '../../../../styles/global.scss';
+
+.titleImg {
+    margin: $medianil *2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    h1 {
+        margin-left: 10px;
+        font-family: $font-1;
+    }
+
+}

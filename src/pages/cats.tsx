@@ -1,33 +1,41 @@
 import Head from 'next/head';
+import styles from '../styles/Animals.module.scss'
 import catImg from '../../public/catPageImg.svg'
 import { Header } from '../common/components/Header'
-import { TextAndImg } from '../common/components/atoms/TextAndImg/index'
+import { TitleAndImg } from '../common/components/atoms/TitleAndImg/index'
+import { SingleFilterBox } from '../common/components/Filters/SingleFilterBox/index'
+import { ThemeProvider } from 'styled-components';
+
 
 
 export interface CatsMainPageProps {
     className?: any;
     loading?:boolean;
     id?:string;
+    theme: any
+};
+const theme = {
+    margin: "16px"
 }
+
 const Cats = () => {
     return(
-        <>
-        <Head>
-            <title>iAdopt Cats</title>
-            <meta name="description" content="Plataforma de adopción que pone en contacto protectoras y adoptantes" />
-        </Head>
-        <main>
-            <Header
-                path='/'
-                text="Inicio"
-            />
-        <TextAndImg 
-            title="Gatos"
-            img={catImg}
-        />
+        <ThemeProvider theme={theme}>
+            <Head>
+                <title>iAdopt Cats</title>
+                <meta name="description" content="Plataforma de adopción que pone en contacto protectoras y adoptantes" />
+            </Head>
+            <main>
+                <Header path='/' text="Inicio"/>
+                <TitleAndImg title="Gatos" img={catImg} />
+                <div className={styles.filterContainer}>
+                    <SingleFilterBox theme="catTheme" filterTitle="Genero" />
+                    <SingleFilterBox theme="dogTheme" filterTitle="Genero" />
+                    <SingleFilterBox theme="animalsTheme" filterTitle="Genero" />
+                </div>
 
-        </main>
-        </>
+            </main>
+        </ThemeProvider>
     )
 }
 export default Cats

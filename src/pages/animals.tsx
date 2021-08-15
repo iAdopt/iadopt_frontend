@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import allImg from '../../public/animalPageImg.svg'
+import styles from '../styles/Animals.module.scss'
+import { FiltersGroup } from '../common/components/Filters/AnimalFiltersGroup'
 import { Header } from '../common/components/Header'
 import { TitleAndImg } from '../common/components/atoms/TitleAndImg/index'
 
@@ -25,6 +27,8 @@ const Animals = () => {
             title="Gatos y Perros"
             img={allImg}
         />
+         <FiltersGroup theme="animalsTheme"/>
+
 
         </main>
         </>

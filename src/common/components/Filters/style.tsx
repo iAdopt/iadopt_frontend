@@ -1,0 +1,113 @@
+
+import styled from "styled-components";
+
+const FiltersContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 40px;
+    > div {
+        margin: 3px;
+    }
+    .filterButtons {
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+    }
+    button {
+        margin-top: 5px;
+        width: 140px;
+        height: 44px;
+        background: #FFDC97;
+        border-radius: 10px;
+        border-color:  #FFDC97;
+        cursor:pointer;
+        &:hover {
+            background-color: #F6BD4F;
+        }
+    }
+    .vl {
+        border-left: 3px solid black;
+        height: 110px;
+        margin: 0 15px;
+        @media (max-width: 768px ) {
+            display: none;
+        }
+      }
+      `
+
+const FilterBoxGeneric = styled.div`
+    display: flex;
+    flex-direction:column;
+    flex-grow: 1;
+    border-radius: 10px;
+    height: 110px;
+    min-width: 140px;
+    padding: 6px 8px;
+    font-family:'Open Sans', sans-serif;
+`;
+const FilterTitle = styled.h4`
+    margin-bottom: 10px;
+    margin-left: 3px;
+    font-size: 16px;
+`
+
+const FiltersDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    @media (min-width: 768px ) {
+        flex-wrap: wrap;
+        height: 80px;
+    }
+
+`
+const Filter = styled.div`
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    input[type=checkbox]:checked + label {
+    } 
+`;
+
+const catTheme:any = styled(FilterBoxGeneric)`
+    background-color: rgba(196, 227, 145, 0.6);
+    ${Filter} {
+
+    }
+`;
+
+const dogTheme:any = styled(FilterBoxGeneric)`
+    background-color: rgba(232, 127, 127, 0.6);
+`;
+
+const centerTheme:any = styled(FilterBoxGeneric)`
+    background-color: rgba(232, 127, 127, 0.6);
+`
+
+const animalsTheme:any = styled(FilterBoxGeneric)`
+    background-color:rgba(255, 233, 173, 0.8);
+`;
+
+const Themes:{[key:string]:any} = {
+    catTheme,
+    dogTheme,
+    centerTheme,
+    animalsTheme 
+}
+
+const FilterBox = (props:any) => {
+    const Component:any = Themes[props.theme];
+    return <Component {...props} />
+}
+
+export {
+    FiltersContainer,
+    FilterBox,
+    Filter,
+    FiltersDiv,
+    FilterTitle
+}

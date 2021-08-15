@@ -3,7 +3,7 @@ import styles from '../styles/Animals.module.scss'
 import catImg from '../../public/catPageImg.svg'
 import { Header } from '../common/components/Header'
 import { TitleAndImg } from '../common/components/atoms/TitleAndImg/index'
-import { SingleFilterBox } from '../common/components/Filters/SingleFilterBox/index'
+import { FiltersGroup } from '../common/components/Filters/AnimalFiltersGroup'
 import { ThemeProvider } from 'styled-components';
 
 
@@ -28,12 +28,7 @@ const Cats = () => {
             <main>
                 <Header path='/' text="Inicio"/>
                 <TitleAndImg title="Gatos" img={catImg} />
-                <div className={styles.filterContainer}>
-                    <SingleFilterBox theme="catTheme" filterTitle="Genero" />
-                    <SingleFilterBox theme="dogTheme" filterTitle="Genero" />
-                    <SingleFilterBox theme="animalsTheme" filterTitle="Genero" />
-                </div>
-
+                <FiltersGroup theme="catTheme"/>
             </main>
         </ThemeProvider>
     )

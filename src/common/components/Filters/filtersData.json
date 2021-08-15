@@ -1,0 +1,47 @@
+{
+        "gender": [
+            {
+                "type": "checkbox",
+                "label": "Femenino",
+                "value": "f",
+                "id": "f"
+            },
+             {
+                "type": "checkbox",
+                "label": "Masculino",
+                "value": "m",
+                "id": "m"
+            }
+        ],
+        "age": [ 
+            {
+                "type": "checkbox",
+                "label": "Cachorros",
+                "value": "kitten",
+                "id": "0"
+            },
+            {
+                "type": "checkbox",
+                "label": "Adultos",
+                "value": "adult",
+                "id": "1"
+            }
+        ],
+        "labelStatus": [ 
+            {
+                "type": "checkbox",
+                "label": "Urgente",
+                "value": "urgent",
+                "id": "urg"
+            },
+            {
+                "type": "checkbox",
+                "label": "Nuevos",
+                "value": "new",
+                "id": "new"
+            }     
+        ]
+
+        
+}
+

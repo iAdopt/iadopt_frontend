@@ -22,6 +22,8 @@ const FiltersContainer = styled.div`
         border-radius: 10px;
         border-color:  #FFDC97;
         cursor:pointer;
+        font-family:'Open Sans', sans-serif;
+        font-size: 14px;
         &:hover {
             background-color: #F6BD4F;
         }
@@ -34,7 +36,7 @@ const FiltersContainer = styled.div`
             display: none;
         }
       }
-      `
+`
 
 const FilterBoxGeneric = styled.div`
     display: flex;
@@ -69,8 +71,14 @@ const Filter = styled.div`
     padding-right: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
     input[type=checkbox]:checked + label {
     } 
+    input[type=checkbox] {
+        height: 20px;
+        width: 20px;
+        margin-right: 6px;  
+    }
 `;
 
 const catTheme:any = styled(FilterBoxGeneric)`

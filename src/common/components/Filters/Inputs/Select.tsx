@@ -1,13 +1,44 @@
+import { useEffect, useState } from 'react'
+import styled from 'styled-components';
 
 
-export const Select = () => {  
+export const SelectSearch = () => {  
+    const [selectState, setSelect] = useState([]);
 
+    const loadData = async () => {
+        const response = await fetch("https://api.idescat.cat/emex/v1/nodes.json?tipus=prov");
+        const data = await response.json();
+        setSelect(data.fitxes.v.v);
+    }
+    useEffect(() => {
+        loadData();
+    }, [])
+    const handleChange = (e:any) => {
+        e.preventDefault()
+    }
 
     return(
-        <select>
-              <option value="A">Apple</option>
-  <option value="B">Banana</option>
-  <option value="C">Cranberry</option>
-        </select>
+        <>
+            <label style={styles.selectLabel} htmlFor="catSelectRegion">Selecciona una comarca:</label>
+            <select style={styles.select} name="catSelectRegion" id="catSelectRegion"> 
+                <option value="">Selecciona...</option>
+                { selectState.map((opt:any) => {
+                    return <option key={opt.id} value={opt.id} >{opt.content}</option>
+                  })
+                }   
+             </select>
+        </>
+
     )       
+}
+const styles = {
+    selectLabel: {
+       fontSize: '12px',
+       paddingLeft: '4px'
+    },
+    select: {
+        padding: '6px 6px',
+        borderRadius: '6px',
+        marginTop: '6px'
+    }
 }

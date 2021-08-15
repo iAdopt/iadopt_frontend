@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { InputEl } from '../Inputs/InputEl';
-import { Select } from '../Inputs/Select';
+import { SelectSearch } from '../Inputs/Select';
 
 import { FilterBox, Filter, FilterTitle } from '../style';
 
@@ -45,7 +45,7 @@ return(
                     return (
                         <FilterBox theme={theme}>
                             <FilterTitle>Localización</FilterTitle>
-                            <Select/>
+                            <SelectSearch/>
                         </FilterBox>
                     )
             }

@@ -2,15 +2,17 @@
         "gender": [
             {
                 "type": "checkbox",
+                "datafor": "gender",
                 "label": "Femenino",
-                "value": "f",
-                "id": "f"
+                "value": "female",
+                "id": "female"
             },
-             {
+            {
                 "type": "checkbox",
+                "datafor": "gender",
                 "label": "Masculino",
-                "value": "m",
-                "id": "m"
+                "value": "male",
+                "id": "male"
             }
         ],
         "age": [ 

@@ -1,10 +1,12 @@
+@import 'global.scss';
 
-.filterContainer {
-    display: flex;
-    justify-content: flex-start;
-    align-items: s;
-    margin: 10px 40px;
-    > div {
-        margin: 3px;
+
+
+.sponsors {
+    display: none;
+    @include forTabletUp {
+        display: inline-block;
+        background-color: gray;
+
     }
 }

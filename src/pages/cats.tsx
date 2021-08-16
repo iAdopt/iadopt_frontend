@@ -3,7 +3,9 @@ import styles from '../styles/Animals.module.scss'
 import catImg from '../../public/catPageImg.svg'
 import { Header } from '../common/components/Header'
 import { TitleAndImg } from '../common/components/atoms/TitleAndImg/index'
-import { FiltersGroup } from '../common/components/Filters/AnimalFiltersGroup'
+import { FiltersGroup } from '../common/components/Filters/FiltersGroup'
+import { VisualFilter } from '../common/components/Filters/FilterVisual'
+
 import { ThemeProvider } from 'styled-components';
 
 
@@ -15,7 +17,7 @@ export interface CatsMainPageProps {
     theme: any
 };
 const theme = {
-    margin: "16px"
+   
 }
 
 const Cats = () => {
@@ -28,7 +30,9 @@ const Cats = () => {
             <main>
                 <Header path='/' text="Inicio"/>
                 <TitleAndImg title="Gatos" img={catImg} />
+                
                 <FiltersGroup theme="catTheme"/>
+                <VisualFilter theme="catTheme"/>
             </main>
         </ThemeProvider>
     )

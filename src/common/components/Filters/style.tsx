@@ -65,7 +65,7 @@ const FiltersDiv = styled.div`
     }
 
 `
-const Filter = styled.div`
+const StyledFilterDiv = styled.div`
     font-size: 14px;
     margin-bottom: 10px;
     padding-right: 10px;
@@ -83,7 +83,7 @@ const Filter = styled.div`
 
 const catTheme:any = styled(FilterBoxGeneric)`
     background-color: rgba(196, 227, 145, 0.6);
-    ${Filter} {
+    ${StyledFilterDiv} {
 
     }
 `;
@@ -107,15 +107,15 @@ const Themes:{[key:string]:any} = {
     animalsTheme 
 }
 
-const FilterBox = (props:any) => {
+const StyledFilterBox = (props:any) => {
     const Component:any = Themes[props.theme];
     return <Component {...props} />
 }
 
 export {
     FiltersContainer,
-    FilterBox,
-    Filter,
+    StyledFilterBox,
+    StyledFilterDiv,
     FiltersDiv,
     FilterTitle
 }

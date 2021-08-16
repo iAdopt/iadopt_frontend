@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import dogImg from '../../public/dogPageImg.svg'
 import styles from '../styles/Animals.module.scss'
-import { FiltersGroup } from '../common/components/Filters/AnimalFiltersGroup'
+import { FiltersGroup } from '../common/components/Filters/FiltersGroup'
 import { Header } from '../common/components/Header'
 import { TitleAndImg } from '../common/components/atoms/TitleAndImg/index'
 

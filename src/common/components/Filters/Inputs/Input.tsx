@@ -1,38 +1,49 @@
 import { FiltersDiv, StyledFilterDiv } from '../style';
-import { useState } from 'react'
-import { Filter } from '../Filter'
 import filtersData from '../filtersData.json';
 
 
-export const Checkboxes = ({
+export const Input = ({
     type, 
     filtersState,
-    setFiltersState,
-    filterData,
-    key
+    setFiltersState
     }:any) => {  
 
-    const labelStatusData = [] as const; 
+    const statusData = [] as const; 
     let genderData = [] as const;
     let ageData = [] as const;
 
+    const handleChange = (e:any) => {
+        if (type == 'gender') {
+            setFiltersState((prev:any) => ({...prev, gender: e.target.value}))
+        } else if (type == 'age') {
+            setFiltersState((prev:any) => ({...prev, age: e.target.value}))
+        } else if (type == 'status') {
+            setFiltersState((prev:any) => ({...prev, status: e.target.value}))
+        }
+    }
 
-    const handleChange = () => {}
     /* Build the inputs from json */
     const renderData = (jsonData, array) => {
         jsonData.forEach((filter:any) =>  { 
             array.push(
-                <Filter key={filter.id} filtersState={filtersState[filter.value]} setFiltersState={setFiltersState} filterData={filter.datafor}>
-                    <input onChange={handleChange} checked={filtersState[filter.value]} type={filter.type} value={filter.value} id={filter.id}/>
+                <StyledFilterDiv key={filter.id} >
+                    <input 
+                        key={filter.id} 
+                        checked={filtersState == filter.value ? true : false} 
+                        type={filter.type} value={filter.value} 
+                        id={filter.id} 
+                        className={filter.datafor}
+                        onChange={handleChange}
+                    />
                     <label htmlFor={filter.id}>{filter.label}</label>
-                </Filter>
+                </StyledFilterDiv>
             )                    
         })
     }
 
     renderData(filtersData.gender, genderData);
     renderData(filtersData.age, ageData);
-    renderData(filtersData.labelStatus, labelStatusData);
+    renderData(filtersData.status, statusData);
 
     return(
         <>
@@ -44,8 +55,8 @@ export const Checkboxes = ({
                     case 'age': 
                         return <FiltersDiv>{ageData}</FiltersDiv>
           
-                    case 'labelStatus': 
-                        return <FiltersDiv>{labelStatusData}</FiltersDiv>
+                    case 'status': 
+                        return <FiltersDiv>{statusData}</FiltersDiv>
                         
                     default: 
                         return(

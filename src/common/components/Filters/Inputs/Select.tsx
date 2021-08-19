@@ -20,7 +20,7 @@ export const SelectSearch = () => {
         <>
             <label style={styles.selectLabel} htmlFor="catSelectRegion">Selecciona una comarca:</label>
             <select style={styles.select} name="catSelectRegion" id="catSelectRegion"> 
-                <option value="">Selecciona...</option>
+                <option value="allLocation">Selecciona...</option>
                 { selectState.map((opt:any) => {
                     return <option key={opt.id} value={opt.id} >{opt.content}</option>
                   })

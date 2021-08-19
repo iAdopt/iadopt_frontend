@@ -1,7 +1,7 @@
 
 import styled from "styled-components";
 
-const FiltersContainer = styled.div`
+const FiltersContainer = styled.form`
     display: flex;
     flex-wrap: wrap;
     margin: 10px 40px;
@@ -43,13 +43,13 @@ const FilterBoxGeneric = styled.div`
     flex-direction:column;
     flex-grow: 1;
     border-radius: 10px;
-    height: 110px;
+    height: 120px;
     min-width: 140px;
     padding: 6px 8px;
     font-family:'Open Sans', sans-serif;
 `;
 const FilterTitle = styled.h4`
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     margin-left: 3px;
     font-size: 16px;
 `
@@ -61,13 +61,13 @@ const FiltersDiv = styled.div`
     align-items: flex-start;
     @media (min-width: 768px ) {
         flex-wrap: wrap;
-        height: 80px;
+        height: 90px;
     }
 
 `
 const StyledFilterDiv = styled.div`
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     padding-right: 10px;
     display: flex;
     justify-content: center;

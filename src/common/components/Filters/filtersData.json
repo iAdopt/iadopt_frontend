@@ -1,14 +1,21 @@
 {
         "gender": [
             {
-                "type": "checkbox",
+                "type": "radio",
+                "datafor": "gender",
+                "label": "Ver todos",
+                "value": "allGender",
+                "id": "allGender"
+            },
+            {
+                "type": "radio",
                 "datafor": "gender",
                 "label": "Femenino",
                 "value": "female",
                 "id": "female"
             },
             {
-                "type": "checkbox",
+                "type": "radio",
                 "datafor": "gender",
                 "label": "Masculino",
                 "value": "male",
@@ -17,27 +24,39 @@
         ],
         "age": [ 
             {
-                "type": "checkbox",
+                "type": "radio",
+                "label": "Ver todos",
+                "value": "allAge",
+                "id": "allAge"
+            },
+            {
+                "type": "radio",
                 "label": "Cachorros",
                 "value": "kitten",
                 "id": "0"
             },
             {
-                "type": "checkbox",
+                "type": "radio",
                 "label": "Adultos",
                 "value": "adult",
                 "id": "1"
             }
         ],
-        "labelStatus": [ 
+        "status": [ 
             {
-                "type": "checkbox",
+                "type": "radio",
+                "label": "Ver todos",
+                "value": "allStatus",
+                "id": "allStatus"
+            },
+            {
+                "type": "radio",
                 "label": "Urgente",
                 "value": "urgent",
                 "id": "urg"
             },
             {
-                "type": "checkbox",
+                "type": "radio",
                 "label": "Nuevos",
                 "value": "new",
                 "id": "new"

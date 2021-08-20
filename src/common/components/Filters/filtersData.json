@@ -33,13 +33,13 @@
                 "type": "radio",
                 "label": "Cachorros",
                 "value": "kitten",
-                "id": "0"
+                "id": "kitten"
             },
             {
                 "type": "radio",
                 "label": "Adultos",
                 "value": "adult",
-                "id": "1"
+                "id": "adult"
             }
         ],
         "status": [ 
@@ -53,7 +53,7 @@
                 "type": "radio",
                 "label": "Urgente",
                 "value": "urgent",
-                "id": "urg"
+                "id": "urgent"
             },
             {
                 "type": "radio",

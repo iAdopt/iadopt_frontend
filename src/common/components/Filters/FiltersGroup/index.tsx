@@ -27,9 +27,9 @@ export const FiltersGroup: React.FC<Props> = ({
 
     /* PENDING TO DO FETCH DATA AND PASS THE FILTERS */
     const AnimalsDataFetch = async () => {
-        let Female = filtersState.gender.female
-        let Male = filtersState.gender.male
-        let API_URL = `gender=${Female}?male=${Male}?age=`
+        let API_URL = `URLAPI..gender=${filtersState.gender}?age=${filtersState.age}?status=${filtersState.status}`;
+        const response = await fetch(API_URL);
+        const data = await response.json();
     }
 
 
@@ -54,8 +54,8 @@ export const FiltersGroup: React.FC<Props> = ({
 return(
     <FiltersContainer>
         <div className="filterButtons">
-            <button type="submit" onClick={handleApplyFilters}> Aplicar filtros </button>
             <button type="button" onClick={handleClear}> Borrar filtros </button>
+            <button type="submit" onClick={handleApplyFilters}> Donaciones </button>
         </div>
         <div className="vl"></div>
         <FiltersBox filtersState={filtersState.gender} setFiltersState={setFiltersState} theme={theme} type="gender"/>

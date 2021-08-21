@@ -4,7 +4,8 @@ import catImg from '../../public/catPageImg.svg'
 import { Header } from '../common/components/Header'
 import { TitleAndImg } from '../common/components/atoms/TitleAndImg/index'
 import { FiltersGroup } from '../common/components/Filters/FiltersGroup'
-import { VisualFilter } from '../common/components/Filters/FilterVisual'
+import { SectionAnimalsView } from '../common/components/SectionAnimalsView'
+
 
 import { ThemeProvider } from 'styled-components';
 
@@ -32,7 +33,7 @@ const Cats = () => {
                 <TitleAndImg title="Gatos" img={catImg} />
                 
                 <FiltersGroup theme="catTheme"/>
-                <VisualFilter theme="catTheme"/>
+                <SectionAnimalsView />
             </main>
         </ThemeProvider>
     )

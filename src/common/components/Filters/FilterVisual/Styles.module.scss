@@ -1,7 +1,33 @@
 
+@import '../../../../styles/global.scss';
+
+
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     flex-grow: 1;
     margin: 24px 36px;
+    justify-content: space-between;
+    @include forTabletUp {
+        flex-direction: row;
+    }
+    .visualBox {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        button {
+            background-color: #FFE9AD;
+            border-radius: 6px;
+            padding: 5px 7px 3px;
+            cursor: pointer;
+            margin-left: 6px;
+            border: none;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            &:active, &:focus {
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+                background-color:#ffd47d;
+            }
+        }
+    }
 }

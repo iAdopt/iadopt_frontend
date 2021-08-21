@@ -1,35 +1,40 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 
-export const SelectSearch = () => {  
+    
+    export const SelectSearch = ({setFiltersState, filtersState}:any) => {  
     const [selectState, setSelect] = useState([]);
+    const refContainer = useRef();
 
-    const loadData = async () => {
-        const response = await fetch("https://api.idescat.cat/emex/v1/nodes.json?tipus=prov");
-        const data = await response.json();
-        setSelect(data.fitxes.v.v);
-    }
     useEffect(() => {
-        loadData();
-    }, [])
+        fetch("https://api.idescat.cat/emex/v1/nodes.json?tipus=prov")
+        .then(response => response.json())
+        .then( data => {
+            setSelect(data.fitxes.v.v)
+            // refContainer.current = data.fitxes.v.v;
+        });
+    }, []);
+
+
     const handleChange = (e:any) => {
-        e.preventDefault()
+        setFiltersState((prev:any) => ({...prev, location:e.target.value}));
     }
 
     return(
         <>
             <label style={styles.selectLabel} htmlFor="catSelectRegion">Selecciona una comarca:</label>
-            <select style={styles.select} name="catSelectRegion" id="catSelectRegion"> 
-                <option value="allLocation">Selecciona...</option>
+            <select style={styles.select} value={filtersState} name="catSelectRegion" id="catSelectRegion" onChange={handleChange}> 
+                <option key="allLocation" value="allLocation" selected> Todas las comarcas</option>
                 { selectState.map((opt:any) => {
-                    return <option key={opt.id} value={opt.id} >{opt.content}</option>
+                    return <option key={opt.id} value={opt.id}>{opt.content}</option>
                   })
                 }   
-             </select>
+            </select>
         </>
 
     )       
 }
+/* STYLES */
 const styles = {
     selectLabel: {
        fontSize: '12px',

@@ -49,7 +49,7 @@ return(
                     return (
                         <StyledFilterBox theme={theme}>
                             <FilterTitle>Localización</FilterTitle>
-                            <SelectSearch/>
+                            <SelectSearch filtersState={filtersState} setFiltersState={setFiltersState}/>
                         </StyledFilterBox>
                     )
             }

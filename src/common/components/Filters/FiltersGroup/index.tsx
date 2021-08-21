@@ -27,19 +27,19 @@ export const FiltersGroup: React.FC<Props> = ({
 
     /* PENDING TO DO FETCH DATA AND PASS THE FILTERS */
     const AnimalsDataFetch = async () => {
-        let API_URL = `URLAPI..gender=${filtersState.gender}?age=${filtersState.age}?status=${filtersState.status}`;
+        let API_URL = `URLAPI..gender=${filtersState.gender}?age=${filtersState.age}?status=${filtersState.status}?location="${filtersState.location}`;
         const response = await fetch(API_URL);
         const data = await response.json();
     }
 
 
     const handleApplyFilters = () => {
-        alert('VER TODOS LOS RESULTADOS :::')
-        /* aceso al estado a los 7 estados */
+        alert('Future donations will be available soon')
+        
     }
 
     const handleClear = (e:any) => {
-        e.preventDefault();
+        
         setFiltersState((prev:any) => (
             {
                 ...prev, 
@@ -48,7 +48,7 @@ export const FiltersGroup: React.FC<Props> = ({
                 status: 'allStatus',
                 location: 'allLocation'
             }
-        ))
+        ));
     };
 
 return(

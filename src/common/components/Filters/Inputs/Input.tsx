@@ -8,9 +8,9 @@ export const Input = ({
     setFiltersState
     }:any) => {  
 
-    const statusData = [] as const; 
-    let genderData = [] as const;
-    let ageData = [] as const;
+    const statusData: object[] = [] ; 
+    let genderData: object[] = [];
+    let ageData: object[] = [];
 
     const handleChange = (e:any) => {
         if (type == 'gender') {
@@ -57,11 +57,6 @@ export const Input = ({
           
                     case 'status': 
                         return <FiltersDiv>{statusData}</FiltersDiv>
-                        
-                    default: 
-                        return(
-                           <p>...</p>
-                        )  
                 }
             })()}
         </>

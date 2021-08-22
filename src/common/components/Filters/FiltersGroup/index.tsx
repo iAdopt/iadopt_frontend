@@ -30,13 +30,25 @@ export const FiltersGroup: React.FC<Props> = ({
     );
 
     /* fake data till get it from BE! */
-    const dataExample ={
+    const dataExample = [
+        {
             "id": 1,
             "name": "Arlo",
             "age": "3 years",
-            "location": "Barcelona"
-    };
-    setAnimals(dataExample);
+            "location": "Barcelona",
+            "gender": "male",
+            "image": "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Sara",
+            "age": "7 years",
+            "gender": "female",
+            "location": "Barcelona",
+            "image": "https://cdn.britannica.com/q:60/22/206222-050-3F741817/Domestic-feline-tabby-cat.jpg"
+        }
+    ];
+    setAnimals([dataExample]);
 
 
     /* PENDING TO DO FETCH DATA AND PASS THE FILTERS */

@@ -17,10 +17,12 @@ return(
         <div style={styles.section}>
                 { stateVisual.v01 ? 
                         (
-                                <div style={styles.v01}><AnimalsV01 /></div>
+                                <div style={styles.v01}>
+                                        <AnimalsV01 />
+                                </div>
                                 
                         ) : ( 
-                                <div style={styles.v02}>A</div>
+                                <div style={styles.v02}>Visualizacón 02 pendiente...</div>
 
                         )
                 }

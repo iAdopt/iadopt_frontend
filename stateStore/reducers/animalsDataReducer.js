@@ -7,7 +7,7 @@ const initialAnimalData = {
     data: [],
 }
 
-export const animalDataReducer = (state = {}, {type, payload}) => {
+export const animalDataReducer = (state = [], {type, payload}) => {
     switch (type) {
         case types.SET_ANIMALS:
             return {...state,...payload}

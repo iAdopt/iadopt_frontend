@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import centrosImg from '../../public/centrosPageImg.svg'
 import { Header } from '../common/components/Header'
-import { TitleAndImg } from '../common/components/atoms/TitleAndImg/index'
+import { TitleAndImg } from '../common/components/TitleAndImg/index'
 
 
 export interface CatsMainPageProps {

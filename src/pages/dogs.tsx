@@ -3,7 +3,9 @@ import dogImg from '../../public/dogPageImg.svg'
 import styles from '../styles/Animals.module.scss'
 import { FiltersGroup } from '../common/components/Filters/FiltersGroup'
 import { Header } from '../common/components/Header'
-import { TitleAndImg } from '../common/components/atoms/TitleAndImg/index'
+import { TitleAndImg } from '../common/components/TitleAndImg/index'
+import { SectionAnimalsView } from '../common/components/SectionAnimalsView'
+
 
 
 export interface CatsMainPageProps {
@@ -27,7 +29,9 @@ const Dogs = () => {
             title="Perros"
             img={dogImg}
         />
-                <FiltersGroup theme="dogTheme"/>
+        <FiltersGroup theme="dogTheme"/>
+        <SectionAnimalsView />
+
 
 
         </main>

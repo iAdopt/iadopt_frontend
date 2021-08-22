@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Animals.module.scss'
 import catImg from '../../public/catPageImg.svg'
 import { Header } from '../common/components/Header'
-import { TitleAndImg } from '../common/components/atoms/TitleAndImg/index'
+import { TitleAndImg } from '../common/components/TitleAndImg/index'
 import { FiltersGroup } from '../common/components/Filters/FiltersGroup'
 import { SectionAnimalsView } from '../common/components/SectionAnimalsView'
 

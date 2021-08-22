@@ -24,7 +24,7 @@ import { useEffect, useState, useRef } from 'react'
         <>
             <label style={styles.selectLabel} htmlFor="catSelectRegion">Selecciona una comarca:</label>
             <select style={styles.select} value={filtersState} name="catSelectRegion" id="catSelectRegion" onChange={handleChange}> 
-                <option key="allLocation" value="allLocation" selected> Todas las comarcas</option>
+                <option key="allLocation" value="allLocation"> Todas las comarcas</option>
                 { selectState.map((opt:any) => {
                     return <option key={opt.id} value={opt.id}>{opt.content}</option>
                   })

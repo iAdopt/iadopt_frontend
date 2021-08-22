@@ -2,25 +2,20 @@ import styles from './Styles.module.scss';
 import Image from 'next/image'
 import v01 from '../../../../../public/v01.png'
 import v02 from '../../../../../public/v02.png'
-import { useState, useEffect, useRef } from 'react'
 
 
 export const VisualFilter = ({
+stateVisual,
+setStateVisual,
 ...props
-}) => { 
-const [stateVisual, setStateVisual] = useState({ v01:true, v02:false});
-const buttonFocused = useRef(null);
+}:any) => { 
 
-useEffect(() => {
-    buttonFocused.current.focus();
-}, []);
-
-
-const handleClickv01 = (event:any) => {
+/* FILTERS VIEWS BUTTONS HANDLERS */
+const handleClickv01 = () => {
     setStateVisual(() => ({v01:true, v02:false}));
 }
 
-const handleClickv02 = (event:any) => {
+const handleClickv02 = () => {
     setStateVisual(() => ({v01:false, v02:true})); 
 }
 
@@ -30,7 +25,7 @@ return(
         <div className={styles.visualBox}>
             <p><strong>Visualización:</strong></p>
 
-            <button style={stateVisual.v01 ? (istyles.activeClass): (istyles.disabledClass)} onClick={handleClickv01} ref={buttonFocused}>
+            <button style={stateVisual.v01 ? (istyles.activeClass): (istyles.disabledClass)} onClick={handleClickv01}>
                 <Image id="v01" src={v01} width="56" alt="visualization01"/>
             </button>
             <button style={stateVisual.v02 ? (istyles.activeClass): (istyles.disabledClass)} onClick={handleClickv02}>

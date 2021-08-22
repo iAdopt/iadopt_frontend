@@ -17,16 +17,13 @@
         justify-content: center;
         align-items: center;
         button {
-            background-color: #FFE9AD;
             border-radius: 6px;
             padding: 5px 7px 3px;
             cursor: pointer;
             margin-left: 6px;
             border: none;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            &.activeClass,
-            &:active, 
-            &:focus {
+            &:hover {
                 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
                 background-color:#ffd47d;
             }

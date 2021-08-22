@@ -30,13 +30,23 @@ return(
         <div className={styles.visualBox}>
             <p><strong>Visualización:</strong></p>
 
-            <button className={stateVisual.v01  ? 'activeClass' : ''} onClick={handleClickv01} ref={buttonFocused}>
+            <button style={stateVisual.v01 ? (istyles.activeClass): (istyles.disabledClass)} onClick={handleClickv01} ref={buttonFocused}>
                 <Image id="v01" src={v01} width="56" alt="visualization01"/>
             </button>
-            <button className={stateVisual.v02  ? 'activeClass' : ''} onClick={handleClickv02}>
+            <button style={stateVisual.v02 ? (istyles.activeClass): (istyles.disabledClass)} onClick={handleClickv02}>
                 <Image id="v02" src={v02} width="56" alt="visualization02"/>
             </button>
         </div>     
     </div>
 )
 }
+
+const istyles = {
+    activeClass: {
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25)',
+        backgroundColor:'#ffd47d'
+    },
+    disabledClass: {
+        backgroundColor: '#FFE9AD'
+    }
+};

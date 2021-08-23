@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { FiltersBox } from '../FiltersBox';
 import { FiltersContainer } from '../style';
@@ -29,7 +29,7 @@ export const FiltersGroup: React.FC<Props> = ({
         }
     );
 
-    /* fake data till get it from BE! */
+    /* fake data til get it from BE! */
     const dataExample = [
         {
             "id": 1,
@@ -37,7 +37,8 @@ export const FiltersGroup: React.FC<Props> = ({
             "age": "3 years",
             "location": "Barcelona",
             "gender": "male",
-            "image": "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg"
+            "image": "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg",
+            "description": "Just like for humans, the five senses play an important role in helping felines understand their surroundings. But the way cats use those senses is often very different than how we do."
         },
         {
             "id": 2,
@@ -45,10 +46,33 @@ export const FiltersGroup: React.FC<Props> = ({
             "age": "7 years",
             "gender": "female",
             "location": "Barcelona",
-            "image": "https://cdn.britannica.com/q:60/22/206222-050-3F741817/Domestic-feline-tabby-cat.jpg"
+            "image": "https://cdn.britannica.com/q:60/22/206222-050-3F741817/Domestic-feline-tabby-cat.jpg",
+            "description": "Just like for humans, the five senses play an important role in helping felines understand their surroundings. But the way cats use those senses is often very different than how we do."
+
+        },
+        {
+            "id": 3,
+            "name": "Oslo",
+            "age": "3 years",
+            "location": "Sant Cugat",
+            "gender": "male",
+            "image": "https://static.standard.co.uk/2021/06/21/14/newFile.jpg?width=320&auto=webp&quality=75&crop=968%3A645%2Csmart",
+            "description": "Just like for humans, the five senses play an important role in helping felines understand their surroundings. But the way cats use those senses is often very different than how we do."
+
+        },
+        {
+            "id": 4,
+            "name": "Ronny",
+            "age": "7 years",
+            "gender": "female",
+            "location": "Esplugas",
+            "image": "https://www.pawschicago.org/fileadmin/_processed_/1/2/csm_PAWS_New_Site__50_of_201__70103c47cf.jpg",
+            "description": "Just like for humans, the five senses play an important role in helping felines understand their surroundings. But the way cats use those senses is often very different than how we do."
+
         }
     ];
     setAnimals([dataExample]);
+    /* END fake data  */
 
 
     /* PENDING TO DO FETCH DATA AND PASS THE FILTERS */
@@ -59,6 +83,12 @@ export const FiltersGroup: React.FC<Props> = ({
         // setAnimals(data) GET THE DATA FROM REDUX STORE HERE! :) :) :) 
     }
 
+    useEffect(() => {
+        // AnimalsDataFetch()
+        return () => {}
+    }, [filtersState])
+
+    
     const handleApplyFilters = () => {
         alert('Future donations will be available soon')
     }

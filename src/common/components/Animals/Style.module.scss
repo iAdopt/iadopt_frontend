@@ -14,24 +14,110 @@
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 24px;
         margin: 6px;
+        cursor: pointer;
+        &:hover {
+            border: 2px solid #ffd47d;
+        }
         h3 {
             padding-left: 10px;
+            margin: 6px 0;
         }
-        img {
-            width: 257px;
+        .photo {
+            width: 253px;
             height: 181px;
             mix-blend-mode: normal;
             border: 3px solid #FFFFFF;
             box-sizing: border-box;
             border-radius: 24px;
+            background-size: cover;
+            background-position: center;
         }
         .animalBoxInfo {
             display: flex;
             p {
+                margin: 0;
                 padding-left: 10px;
+            }
+        }
+    }
+}
+
+.animalsV02 {
+    display: flex;
+    flex-direction: column;
+    .animalBoxv02 {
+        display: flex;
+        flex-direction: column;
+        background: #F9F9F9;
+        justify-content: center;
+        align-items:center;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 24px;
+        margin: 6px;
+        height: auto;
+        width: 259px;
+        @include forTabletUp { 
+            height: 257px;
+            flex-direction: row;
+            flex-grow: 1;
+            width: auto;
+        }
+        .photo {
+            width: 257px;
+            height: 257px;
+            mix-blend-mode: normal;
+            border: 3px solid #FFFFFF;
+            box-sizing: border-box;
+            border-radius: 24px;
+            background-size: cover;
+            background-position: center;
+        }
+        .animalBoxInfo {
+            padding: 20px;
+            display: flex;
+            justify-content:space-between;
+            flex-grow: 1;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            h3 {
+                font-size: 24px;
+                @include forDesktopUp {
+                    margin-top: -30px;
+                    margin-bottom: 40px;
+                }
+            }
+            h4 {
+                font-size: 16px;
+            }
+            p {
+                font-size: 14px;
+            }
+            div {
+                max-width: 275px;
+            }
+            .buttonsBox {
+                display: flex;
+                flex-direction:column;
+                justify-content: center;
+                align-items: center;
+                button {
+                    padding: 10px 16px;
+                    width: 155px;
+                    background: #FFDC97;
+                    border: 1px solid #FFCD6B;
+                    box-sizing: border-box;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 10px;
+                    margin-bottom: 16px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 16px;
+                    &:hover {
+                        background-color: #F6BD4F;
+                    }
+                }
             }
         }
     }
 
 }
-

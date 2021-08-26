@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import styles from '../styles/Animals.module.scss'
 import catImg from '../../public/catPageImg.svg'
 import { Header } from '../common/components/Header'
 import { TitleAndImg } from '../common/components/TitleAndImg/index'
@@ -31,8 +30,7 @@ const Cats = () => {
             <main>
                 <Header path='/' text="Inicio"/>
                 <TitleAndImg title="Gatos" img={catImg} />
-                
-                <FiltersGroup theme="catTheme"/>
+                <FiltersGroup theme="catTheme" animalType="CAT"/>
                 <SectionAnimalsView />
             </main>
         </ThemeProvider>

@@ -3,7 +3,7 @@ import {selectedAnimalReducer, animalDataReducer} from "./animalsDataReducer"
 
  const reducers = combineReducers({
     allAnimals: animalDataReducer,
-    animal: selectedAnimalReducer
+    singleAnimal: selectedAnimalReducer
 });
 
 export default reducers

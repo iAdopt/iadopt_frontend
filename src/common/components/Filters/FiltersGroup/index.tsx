@@ -11,11 +11,13 @@ import { bindActionCreators } from 'redux';
 
 export interface Props {
     theme: "catTheme" | "dogTheme" | "animalsTheme" | "centerTheme"
+    animalType: "CAT" | "DOG" | "ALL"
 }
 
 
 export const FiltersGroup: React.FC<Props> = ({
     theme,
+    animalType,
     ...props
 }) => { 
     const {setAnimals} = bindActionCreators(actionCreators, useDispatch());
@@ -29,12 +31,13 @@ export const FiltersGroup: React.FC<Props> = ({
         }
     );
 
-    /* fake data til get it from BE! */
+    /* Fake data til get it from BE! */
     const dataExample = [
         {
             "id": 1,
             "name": "Arlo",
             "age": "3 years",
+            "type": "DOG",
             "location": "Barcelona",
             "gender": "male",
             "image": "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg",
@@ -44,6 +47,7 @@ export const FiltersGroup: React.FC<Props> = ({
             "id": 2,
             "name": "Sara",
             "age": "7 years",
+            "type": "CAT",
             "gender": "female",
             "location": "Barcelona",
             "image": "https://cdn.britannica.com/q:60/22/206222-050-3F741817/Domestic-feline-tabby-cat.jpg",
@@ -53,6 +57,7 @@ export const FiltersGroup: React.FC<Props> = ({
         {
             "id": 3,
             "name": "Oslo",
+            "type": "CAT",
             "age": "3 years",
             "location": "Sant Cugat",
             "gender": "male",
@@ -62,6 +67,7 @@ export const FiltersGroup: React.FC<Props> = ({
         },
         {
             "id": 4,
+            "type": "CAT",
             "name": "Ronny",
             "age": "7 years",
             "gender": "female",
@@ -74,13 +80,12 @@ export const FiltersGroup: React.FC<Props> = ({
     setAnimals([dataExample]);
     /* END fake data  */
 
-
     /* PENDING TO DO FETCH DATA AND PASS THE FILTERS */
     const AnimalsDataFetch = async () => {
-        let API_URL = `URLAPI..gender=${filtersState.gender}?age=${filtersState.age}?status=${filtersState.status}?location="${filtersState.location}`;
+        let API_URL = `URLAPI..type=${animalType}?gender=${filtersState.gender}?age=${filtersState.age}?status=${filtersState.status}?location="${filtersState.location}`;
         const response = await fetch(API_URL);
         const data = await response.json();
-        // setAnimals(data) GET THE DATA FROM REDUX STORE HERE! :) :) :) 
+        // setAnimals(data) SET THE DATA FROM REDUX STORE HERE! :) :) :) 
     }
 
     useEffect(() => {

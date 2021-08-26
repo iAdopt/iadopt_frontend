@@ -3,18 +3,21 @@ import styles from './Style.module.scss';
 import logo from './assets/logo.svg'
 import back from './assets/back.svg'
 import { useRouter } from "next/router"
+import { useState } from 'react';
 
 
 export interface Props {
     path: string,
     text: string
+    
 }
 
 export const Header: React.FC<Props> = ({
     text,
     ...props
 }) => {
-    const router = useRouter()
+    const [headerSatate, setHeaderState] = useState({common: true, singleAnimal: false});
+    const router = useRouter();
     return(
         <header className={styles.header}>
             <a className={styles.linkback} onClick={() => router.back()}>

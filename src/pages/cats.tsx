@@ -28,7 +28,7 @@ const Cats = () => {
                 <meta name="description" content="Plataforma de adopción que pone en contacto protectoras y adoptantes" />
             </Head>
             <main>
-                <Header path='/' text="Inicio"/>
+                <Header path='/' text="Inicio" page="general"/>
                 <TitleAndImg title="Gatos" img={catImg} />
                 <FiltersGroup theme="catTheme" animalType="CAT"/>
                 <SectionAnimalsView />

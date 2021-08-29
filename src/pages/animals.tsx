@@ -24,6 +24,7 @@ const Animals = () => {
             <Header
                 path='/'
                 text="Inicio"
+                page="general"
             />
         <TitleAndImg 
             title="Gatos y Perros"

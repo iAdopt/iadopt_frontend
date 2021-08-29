@@ -1,16 +1,101 @@
 @import '../../styles/global.scss';
 
 
+.sectionAnimal {
+    margin: 80px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include forTabletUp {
+        flex-direction: row;
+    }
+    .photo {
+        height: 382px;        
+        @include forTabletUp {
+            min-width: 382px;
+        }
+        mix-blend-mode: normal;
+        border: 3px solid #FFFFFF;
+        box-sizing: border-box;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        border-radius: 24px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .animalInformation {
+        margin: 40px 0;
+        display: flex;
+        flex-direction: column;
+        @include forTabletUp {
+            margin: 0 0 0 40px;
+        }
+
+        .nameCTAinfo {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            h1, button {
+                flex-grow: 1;
+            }
+            button {
+                margin-right: 6px;
+                max-width: 155px;
+                height: 40px;
+                background: #FFDC97;
+                border: 1px solid #FFCD6B;
+                box-sizing: border-box;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 10px;
+                margin-bottom: 16px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 12px;
+                &:hover {
+                    background-color: #F6BD4F;
+                }               
+            }
+        }
+    }
+
+    .extraInfo {
+        display: flex;
+        flex-direction: column;
+        @include forTabletUp {
+            flex-direction: row;
+
+        }
+        margin-top: 40px;
+        justify-content: space-between;
+        align-items: flex-start;
+        div {
+            flex-basis: 0;
+            flex-grow: 1;
+            &:not(:last-child) {
+                margin-right: 30px;
+            }
+            margin-bottom: 20px;
+        }
+    }
+    span {
+        background-color: $cat-color;
+        padding: 2px 10px;
+        border-radius: 8px;
+        display: inline-block;
+        margin: 2px;
+    }
+}
 
 
-.photo {
-    width: 382px;
-    height: 382px;
-    mix-blend-mode: normal;
-    border: 3px solid #FFFFFF;
-    box-sizing: border-box;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    border-radius: 24px;
-    background-size: cover;
-    background-position: center;
+
+.sectionCenter {
+    margin: 80px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    @include forTabletUp {
+        flex-direction: row;
+    }
+
 }

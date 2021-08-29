@@ -9,7 +9,7 @@ $all-color: #FFE9AD;
 $center-color: #A5D2D0;
 
 $font-1:'Roboto Slab', serif;
-$font-2:'Open Sans', sans-serif;
+$font-2:'Trebuchet MS', sans-serif;
 $medianil: 16px;
 
 
@@ -24,6 +24,7 @@ $breackpoints: (
     DESKTOP_MAX_WIDTH           : "1799px",
     BIG_DESKTOP_MIN_WIDTH       : "1800px"
 );
+
 
 /* phone */
 @mixin forPhoneOnly {

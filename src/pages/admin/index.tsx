@@ -1,5 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { Header } from '../../common/components/Header'
+import {InsertAnimalForm} from '../../common/components/Form/InsertAnimalForm'
+import { useState } from 'react';
+
+
 
 export interface CatsMainPageProps {
     className?: any;
@@ -7,9 +12,19 @@ export interface CatsMainPageProps {
     id?:string;
 }
 const Admin = () => {
+    const [logState, setLogstate] = useState(true);
+
     return(
         <>
-        <h1>This is Loging/Home Administrator Page -- LOGIN ? </h1>
+        <Header
+            path='/'
+            text=""
+            page="admin"
+            logState={logState}
+            setLogstate={setLogstate}
+        />
+        {logState ? ( <InsertAnimalForm />) : (  <h2><br></br> PLEASE REGISRTER OR LOGIN </h2>)}
+
         </>
     )
 }

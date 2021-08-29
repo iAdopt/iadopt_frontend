@@ -3,28 +3,58 @@ import styles from './Style.module.scss';
 import logo from './assets/logo.svg'
 import back from './assets/back.svg'
 import { useRouter } from "next/router"
-import { useState } from 'react';
+import Link from 'next/link'
 
 
 export interface Props {
     path: string,
     text: string
+    page: "general" | "admin",
+    logState: boolean,
+    setLogstate:any
     
 }
 
 export const Header: React.FC<Props> = ({
     text,
+    page,
+    logState,
+    setLogstate,
     ...props
 }) => {
-    const [headerSatate, setHeaderState] = useState({common: true, singleAnimal: false});
     const router = useRouter();
     return(
-        <header className={styles.header}>
-            <a className={styles.linkback} onClick={() => router.back()}>
-                <Image src={back} alt="Volver" />
-                <p>{text}</p>
-            </a>
-            <Image src={logo} alt="iAdopt" width="120px"/>
-        </header>
+        <>
+            {page == 'general' ? (        
+                <header className={styles.header}>
+                    <a className={styles.linkback} onClick={() => router.back()}>
+                        <Image src={back} alt="Volver" />
+                        <p>{text}</p>
+                    </a>
+                    <Image src={logo} alt="iAdopt" width="120px"/>  
+                </header>
+
+            ) : (
+                <header className={styles.header_Admin}>
+                    <Image src={logo} alt="iAdopt" width="120px"/>  
+                    <div className={styles.headerButtons}>
+                        {logState ? (
+                            <>
+                                {/* <Link href="/admin/profile"> Cuenta </Link> */}
+                                <button className={styles.logout} onClick={() => setLogstate(false)}>Cerrar sesión</button>
+                            </>
+                            
+                        ) : (
+                            <>
+                                <button className={styles.login} onClick={() => setLogstate(true)}>Iniciar sesión</button>
+                                <button className={styles.singin} onClick={() => setLogstate(true)}>Registrarse</button>
+                            </>
+                        )}
+
+                    </div>
+
+                </header>
+            )}
+        </>
     )
 }

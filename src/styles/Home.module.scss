@@ -27,7 +27,7 @@
         }
         @include forTabletUp {
             padding: $medianil $medianil * 3;
-            margin-top: 40px;
+            margin-top: 60px;
             p {
                 font-size: $medianil * 1.9;    
             }
@@ -38,6 +38,7 @@
         }
         @include forDesktopUp {
             max-width: 50%;
+            margin-bottom: 100px;
 
         }
 

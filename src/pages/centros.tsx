@@ -20,6 +20,7 @@ const Animals = () => {
             <Header
                 path='/'
                 text="Inicio"
+                page="admin"
             />
         <TitleAndImg 
             title="Centros de Adopción"

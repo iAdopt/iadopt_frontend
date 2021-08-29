@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import { withTheme } from 'styled-components';
 
 
     
@@ -43,6 +44,7 @@ const styles = {
     select: {
         padding: '6px 6px',
         borderRadius: '6px',
-        marginTop: '6px'
+        marginTop: '6px',
+        backgroundColor: 'white'
     }
 }

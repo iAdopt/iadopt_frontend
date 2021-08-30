@@ -81,14 +81,15 @@ export const FiltersGroup: React.FC<Props> = ({
     /* END fake data  */
 
     /* PENDING TO DO FETCH DATA AND PASS THE FILTERS */
-    const AnimalsDataFetch = async (parent: any, args: any): Promise<JSON> => {
+    const AnimalsDataFetch = async (args: any): Promise<JSON> => {
             const response = await fetch(
               'http://localhost:8080/api/animals/byFilter/', {
                 method: 'post',
-                body: JSON.stringify(filtersState),
+                body: JSON.stringify(args),
                 headers: { 'Content-Type': 'application/json' }
               }
             );
+            console.log(response);
             return response.json();
     }
         // let API_URL = `URLAPI..type=${animalType}?gender=${filtersState.gender}?age=${filtersState.age}?status=${filtersState.status}?location="${filtersState.location}`;
@@ -98,7 +99,9 @@ export const FiltersGroup: React.FC<Props> = ({
 
 
     useEffect(() => {
-        // AnimalsDataFetch()
+        console.log(filtersState);
+        AnimalsDataFetch(filtersState);
+        console.log()
         return () => {}
     }, [filtersState])
 

@@ -30,7 +30,7 @@ const Dogs = () => {
             title="Perros"
             img={dogImg}
         />
-        <FiltersGroup theme="dogTheme" animalType="DOG"/>
+        <FiltersGroup theme="dogTheme" animalType="dog"/>
         <SectionAnimalsView />
 
 

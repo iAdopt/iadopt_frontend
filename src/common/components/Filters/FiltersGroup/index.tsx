@@ -11,7 +11,7 @@ import { bindActionCreators } from 'redux';
 
 export interface Props {
     theme: "catTheme" | "dogTheme" | "animalsTheme" | "centerTheme"
-    animalType: "CAT" | "DOG" | "ALL"
+    animalType: "cat" | "dog" | "all"
 }
 
 
@@ -24,10 +24,10 @@ export const FiltersGroup: React.FC<Props> = ({
    
     const [filtersState, setFiltersState] = useState(
         {
-            gender: undefined,
-            age: undefined,
-            status: undefined,
-            location: undefined
+            gender: "",
+            age: "",
+            status: "",
+            location: ""
         }
     );
 
@@ -77,31 +77,27 @@ export const FiltersGroup: React.FC<Props> = ({
 
         }
     ];
-    setAnimals([dataExample]);
+    // setAnimals([dataExample]);
     /* END fake data  */
 
-    /* PENDING TO DO FETCH DATA AND PASS THE FILTERS */
-    const AnimalsDataFetch = async (args: any): Promise<JSON> => {
-            const response = await fetch(
-              'http://localhost:8080/api/animals/byFilter/', {
-                method: 'post',
-                body: JSON.stringify(args),
-                headers: { 'Content-Type': 'application/json' }
-              }
-            );
-            console.log(response);
-            return response.json();
+
+    const AnimalsDataFetch = async (args: any) => {
+        const response = await fetch(
+          'http://localhost:8080/api/animals/byFilter/', {
+            method: 'post',
+            body: JSON.stringify(args),
+            headers: { 'Content-Type': 'application/json' }
+          }
+        );
+        const data = await response.json();
+        console.log(data);
+        setAnimals(data);
     }
-        // let API_URL = `URLAPI..type=${animalType}?gender=${filtersState.gender}?age=${filtersState.age}?status=${filtersState.status}?location="${filtersState.location}`;
-        // const response = await fetch(API_URL);
-        // const data = await response.json();
-        // setAnimals(data) SET THE DATA FROM REDUX STORE HERE! :) :) :)
 
 
     useEffect(() => {
-        console.log(filtersState);
-        AnimalsDataFetch(filtersState);
-        console.log()
+        console.log({...filtersState, species:animalType});
+        AnimalsDataFetch({...filtersState, species:animalType});
         return () => {}
     }, [filtersState])
 
@@ -122,17 +118,17 @@ export const FiltersGroup: React.FC<Props> = ({
         ));
     };
 
-return(
-    <FiltersContainer>
-        <div className="filterButtons">
-            <button type="button" onClick={handleClear}> Borrar filtros </button>
-            <button type="submit" onClick={handleApplyFilters}> Donaciones </button>
-        </div>
-        <div className="vl"></div>
-        <FiltersBox filtersState={filtersState.gender} setFiltersState={setFiltersState} theme={theme} type="gender"/>
-        <FiltersBox filtersState={filtersState.age} setFiltersState={setFiltersState} theme={theme} type="age"/>
-        <FiltersBox filtersState={filtersState.status} setFiltersState={setFiltersState} theme={theme} type="status"/>
-        <FiltersBox filtersState={filtersState.location} setFiltersState={setFiltersState} theme={theme} type="location"/>
-    </FiltersContainer>
-)
+    return(
+        <FiltersContainer>
+            <div className="filterButtons">
+                <button type="button" onClick={handleClear}> Borrar filtros </button>
+                <button type="submit" onClick={handleApplyFilters}> Donaciones </button>
+            </div>
+            <div className="vl"></div>
+            <FiltersBox filtersState={filtersState.gender} setFiltersState={setFiltersState} theme={theme} type="gender"/>
+            <FiltersBox filtersState={filtersState.age} setFiltersState={setFiltersState} theme={theme} type="age"/>
+            <FiltersBox filtersState={filtersState.status} setFiltersState={setFiltersState} theme={theme} type="status"/>
+            <FiltersBox filtersState={filtersState.location} setFiltersState={setFiltersState} theme={theme} type="location"/>
+        </FiltersContainer>
+    )
 }

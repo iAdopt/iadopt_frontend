@@ -4,7 +4,7 @@
                 "type": "radio",
                 "datafor": "gender",
                 "label": "Ver todos",
-                "value": "allGender",
+                "value": "",
                 "id": "allGender"
             },
             {
@@ -26,14 +26,14 @@
             {
                 "type": "radio",
                 "label": "Ver todos",
-                "value": "allAge",
+                "value": "",
                 "id": "allAge"
             },
             {
                 "type": "radio",
                 "label": "Cachorros",
-                "value": "kitten",
-                "id": "kitten"
+                "value": "baby",
+                "id": "baby"
             },
             {
                 "type": "radio",
@@ -46,8 +46,8 @@
             {
                 "type": "radio",
                 "label": "Ver todos",
-                "value": "allStatus",
-                "id": "allStatus"
+                "value": "",
+                "id": ""
             },
             {
                 "type": "radio",

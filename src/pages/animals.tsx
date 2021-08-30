@@ -30,7 +30,7 @@ const Animals = () => {
             title="Gatos y Perros"
             img={allImg}
         />
-         <FiltersGroup theme="animalsTheme" animalType="ALL"/>
+         <FiltersGroup theme="animalsTheme" animalType="all"/>
          <SectionAnimalsView />
 
 

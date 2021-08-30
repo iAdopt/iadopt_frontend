@@ -16,14 +16,13 @@ const SingleAnimalPage = () => {
     const animalId = router.query.id;
     const {selectAnimal} = bindActionCreators(actionCreators, useDispatch());
     const storeSingleAnimal = useSelector((state) => state.singleAnimal);
-
-
-    /* PENDING TO DO FETCH DATA */
+    console.log('storeSingleAnimal', storeSingleAnimal)
+    console.log('iDDDD', animalId)
     const SingleAnimalDataFetch = async () => {
-        let API_URL = `URLAPI..id={id}`;
-        const response = await fetch(API_URL);
+        const response = await fetch(`http://localhost:8080/api/animals/byId/${animalId}`);
         const data = await response.json();
-        // selectAnimal(data) SET THE DATA TO REDUX STORE HERE! :) :) :) 
+        console.log('Single Animal', data)
+        selectAnimal(response)  
     }
 
     const dataExampleAnimal = {
@@ -43,19 +42,18 @@ const SingleAnimalPage = () => {
             },
             "character": ["Sociable", "Bien con otros gatos", "Tranquilo"],
             "center": "Protectora SPAM Mataró"
-        };
+    };
  
     useEffect(() => {
-        selectAnimal(dataExampleAnimal);
-        console.log('SINGLE ANIMAL', dataExampleAnimal)
-        // setHeaderState("singleAnimal")
-        if (animalId && animalId !== "") {
-            // SingleAnimalDataFetch();
-        }
-      }, []);
+        // selectAnimal(dataExampleAnimal);
+        // console.log('SINGLE ANIMAL', dataExampleAnimal)
+        // if (animalId && animalId !== "") {
+            SingleAnimalDataFetch();
+        // }
+      }, [animalId]);
 
-    //   const MAP_MODE = place;
-    //   const IFRAME_MAP_URL = `https://www.google.com/maps/embed/v1/${MAP_MODE}?key=YOUR_API_KEY&PARAMETERS`
+    //const MAP_MODE = place;
+    //const IFRAME_MAP_URL = `https://www.google.com/maps/embed/v1/${MAP_MODE}?key=YOUR_API_KEY&PARAMETERS`
 
 
     return(

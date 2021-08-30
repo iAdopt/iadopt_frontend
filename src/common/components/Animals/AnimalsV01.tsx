@@ -9,33 +9,33 @@ import Link from 'next/link'
 
       
 export const AnimalsV01 = ({
-
+id
 }:any) => {
 
 /* ANIMALS DATA STATE FROM REDUX*/
-const animalsData = useSelector((state) => state.allAnimals[0]);  //get all animals
+const animalsData = useSelector((state) => state.allAnimals);  //get all animals
 const ROUTE_ANIMAL_ID = "/animal/[id]";
+console.log('ANIMALS DATA REDUX :::::',animalsData)
 
     return(
         <div className={styles.animalsV01}>
-            {animalsData.map((animal, i) => (
-                <div key={i} className={styles.animalBoxv01}>
-                        <Link href={{pathname: ROUTE_ANIMAL_ID,query: {id: animal.id}}} >
-                            {/* <a target="_blank"> */}
-                                <div className={styles.photo} style={{backgroundImage: "url(" + animal.image + ")"}}></div>
-                            {/* </a> */}
-                        </Link>
-                        <h3>{animal.name}</h3> 
-                        <div className={styles.animalBoxInfo}>
-                            <p>{animal.age} |</p>
-                            <p>{animal.gender == 'female' ? '♀ Hembra' : '♂ Macho'} |</p>
-                            <p>{animal.location}</p>
-                        </div>
-                </div>          
-            ))}
-        </div> 
+        {animalsData.map((animal, i) => (
+            <div key={i} className={styles.animalBoxv01}>
+                    <Link href={{pathname: ROUTE_ANIMAL_ID, query: {id: animal.id}}} >
+                        {/* <a target="_blank"> */}
+                            <div className={styles.photo} style={{backgroundImage: "url(" + animal.image + ")"}}></div>
+                        {/* </a> */}
+                    </Link>
+                    <h3>{animal.name}</h3> 
+                    <div className={styles.animalBoxInfo}>
+                        <p>{animal.age} |</p>
+                        <p>{animal.gender == 'female' ? '♀ Hembra' : '♂ Macho'} |</p>
+                        <p>{animal.location}</p>
+                    </div>
+            </div>          
+        ))}
+       </div> 
     )
  }
       
       
- 

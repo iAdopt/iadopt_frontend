@@ -16,9 +16,7 @@ export interface CatsMainPageProps {
     id?:string;
     theme: any
 };
-const theme = {
-   
-}
+const theme = {}
 
 const Cats = () => {
     return(
@@ -30,7 +28,7 @@ const Cats = () => {
             <main>
                 <Header path='/' text="Inicio" page="general"/>
                 <TitleAndImg title="Gatos" img={catImg} />
-                <FiltersGroup theme="catTheme" animalType="CAT"/>
+                <FiltersGroup theme="catTheme" animalType="cat"/>
                 <SectionAnimalsView />
             </main>
         </ThemeProvider>

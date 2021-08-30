@@ -24,4 +24,3 @@ export const selectedAnimalReducer = (state = {}, {type, payload}) => {
             return state
     }
 }
-

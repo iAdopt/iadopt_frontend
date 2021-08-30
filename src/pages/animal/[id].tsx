@@ -29,7 +29,7 @@ const SingleAnimalPage = () => {
     const dataExampleAnimal = {
             "id": 1,
             "name": "Arlo",
-            "age": "3 years",
+            "age": "3 años",
             "type": "DOG",
             "location": "Barcelona",
             "gender": "male",

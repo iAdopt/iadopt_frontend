@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Header } from '../../common/components/Header'
-import {InsertAnimalForm} from '../../common/components/Form/InsertAnimalForm'
+import {InsertAnimalForm} from '../../common/components/Admin/AdminAddAnimalForm'
 import { useState } from 'react';
+import { AdminInformation } from '../../common/components/Admin/AdminInformation';
+import { SectionAnimalsView } from '../../common/components/SectionAnimalsView'
+
 
 
 
@@ -23,7 +26,14 @@ const Admin = () => {
             logState={logState}
             setLogstate={setLogstate}
         />
-        {logState ? ( <InsertAnimalForm />) : (  <h2><br></br> PLEASE REGISRTER OR LOGIN </h2>)}
+        { logState ? ( 
+            <>
+                <AdminInformation />
+                <InsertAnimalForm />
+            </>
+        ) : (  
+            <h2><br></br>PLEASE REGISRTER OR LOGIN </h2>
+        )}
 
         </>
     )

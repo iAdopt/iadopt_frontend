@@ -9,7 +9,7 @@ export interface CatsMainPageProps {
     loading?:boolean;
     id?:string;
 }
-const Animals = () => {
+const Centros = () => {
     return(
         <>
         <Head>
@@ -31,4 +31,4 @@ const Animals = () => {
         </>
     )
 }
-export default Animals
+export default Centros

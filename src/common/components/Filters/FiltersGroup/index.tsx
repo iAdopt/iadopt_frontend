@@ -24,10 +24,10 @@ export const FiltersGroup: React.FC<Props> = ({
    
     const [filtersState, setFiltersState] = useState(
         {
-            gender: 'allGender',
-            age: 'allAge',
-            status: 'allStatus',
-            location: 'allLocation'
+            gender: undefined,
+            age: undefined,
+            status: undefined,
+            location: undefined
         }
     );
 
@@ -81,12 +81,21 @@ export const FiltersGroup: React.FC<Props> = ({
     /* END fake data  */
 
     /* PENDING TO DO FETCH DATA AND PASS THE FILTERS */
-    const AnimalsDataFetch = async () => {
-        let API_URL = `URLAPI..type=${animalType}?gender=${filtersState.gender}?age=${filtersState.age}?status=${filtersState.status}?location="${filtersState.location}`;
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        // setAnimals(data) SET THE DATA FROM REDUX STORE HERE! :) :) :) 
+    const AnimalsDataFetch = async (parent: any, args: any): Promise<JSON> => {
+            const response = await fetch(
+              'http://localhost:8080/api/animals/byFilter/', {
+                method: 'post',
+                body: JSON.stringify(filtersState),
+                headers: { 'Content-Type': 'application/json' }
+              }
+            );
+            return response.json();
     }
+        // let API_URL = `URLAPI..type=${animalType}?gender=${filtersState.gender}?age=${filtersState.age}?status=${filtersState.status}?location="${filtersState.location}`;
+        // const response = await fetch(API_URL);
+        // const data = await response.json();
+        // setAnimals(data) SET THE DATA FROM REDUX STORE HERE! :) :) :)
+
 
     useEffect(() => {
         // AnimalsDataFetch()

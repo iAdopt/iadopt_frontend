@@ -3,15 +3,12 @@ const types = {
     SELECTED_ANIMAL: "SELECTED_ANIMAL"
 }
 
-const initialAnimalData = {
-    data: [],
-}
-
 export const animalDataReducer = (state = [], {type, payload}) => {
     switch (type) {
         case types.SET_ANIMALS:
-            return [...state,...payload]
+            return [state, payload]
         default:
+            console.log('default')
             return state
     }
 }

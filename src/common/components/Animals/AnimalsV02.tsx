@@ -1,8 +1,4 @@
-import {useSelector, useDispatch} from "react-redux"
-import { bindActionCreators } from 'redux';
-import { actionCreators } from "../../../../stateStore/index"
-import Image from 'next/image'
-import localizationMark from '../../../../public/localization.png'
+import {useSelector} from "react-redux"
 import styles from './Style.module.scss';
 
       
@@ -11,11 +7,7 @@ export const AnimalsV02 = ({
 }:any) => {
 
 /* ANIMALS DATA STATE FROM REDUX*/
-const animalsData = useSelector((state) => state.allAnimals[0]);  //get all animals
-const singleAnimal = useSelector((state) => state.animal);  //get single animals
-// console.log(animalsData);
-const label = false;
-
+const animalsData = useSelector((state) => state.allAnimals[1]);  //get all animals
     return(
         <div className={styles.animalsV02}>
             {animalsData.map((animal, i) => (
@@ -23,9 +15,10 @@ const label = false;
                     <div className={styles.photo} style={{backgroundImage: "url(" + animal.image + ")"}}></div>
                     <div className={styles.animalBoxInfo}>
                         <div>
-                            <h3>{animal.name} 
-                                {label ? <div className={styles.label}>{animal.label}</div> : ''}
-                            </h3> 
+                        <div className={styles.identification}>
+                                <h3>{animal.name}</h3> 
+                                {animal.status ? <span className={animal.status == 'urgent' ? styles.labelUrgent : styles.labelNew}>{animal.status}</span> : ''}
+                            </div>
 
                             <p><b>Edad:</b>{animal.age}</p>
                             <p><b>Género:</b>{animal.gender == 'female' ? '♀ Hembra' : '♂ Macho'}</p>

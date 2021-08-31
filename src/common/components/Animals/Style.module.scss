@@ -8,7 +8,7 @@
         flex-wrap: wrap;
     }
     .animalBoxv01 {
-        width: 257px;
+        width: 277px;
         height: 257px;
         background: #F9F9F9;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -18,12 +18,29 @@
         &:hover {
             border: 2px solid #ffd47d;
         }
-        h3 {
-            padding-left: 10px;
-            margin: 6px 0;
+        .identification {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-right: 10px;
+            h3 {
+                padding-left: 10px;
+                margin: 6px 0;
+            }
+            div {
+                padding: 2px 7px 3px 7px;
+                border-radius: 7px;
+                &.labelUrgent {
+                    background-color: $dog-color;
+                }
+                &.labelNew {
+                    background-color: $cat-color;
+                }
+            }
         }
+
         .photo {
-            width: 254px;
+            width: 273px;
             height: 181px;
             mix-blend-mode: normal;
             border: 3px solid #FFFF;
@@ -50,7 +67,6 @@
     align-items: center;
     @include forTabletUp { 
         align-items:unset;
-
     }
     .animalBoxv02 {
         display: flex;
@@ -80,8 +96,7 @@
             background-position: center;
         }
         .animalBoxInfo {
-            padding: 20px;
-            margin-top: 40px;
+            padding: 0 20px ;
             display: flex;
             justify-content:space-between;
             flex-grow: 1;
@@ -102,6 +117,29 @@
             }
             div {
                 max-width: 275px;
+            }
+            .identification {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-right: 10px;
+                h3 {
+                    margin-right: 10px;
+                }
+                span {
+                    padding: 2px 7px 3px 7px;
+                    border-radius: 7px;
+                    @include forDesktopUp {
+                        margin-top: -30px;
+                        margin-bottom: 40px;
+                    }
+                    &.labelUrgent {
+                        background-color: $dog-color;
+                    }
+                    &.labelNew {
+                        background-color: $cat-color;
+                    }
+                }
             }
             .buttonsBox {
                 display: flex;

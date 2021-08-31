@@ -1,9 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import { Header } from '../../common/components/Header'
-import {InsertAnimalForm} from '../../common/components/Admin/AdminAddAnimalForm'
 import { useState } from 'react';
+
 import { AdminInformation } from '../../common/components/Admin/AdminInformation';
+import { AdminAddAnimalForm } from '../../common/components/Admin/AdminAddAnimalForm';
+
 import { SectionAnimalsView } from '../../common/components/SectionAnimalsView'
 
 
@@ -29,10 +29,10 @@ const Admin = () => {
         { logState ? ( 
             <>
                 <AdminInformation />
-                <InsertAnimalForm />
+                <AdminAddAnimalForm />
             </>
         ) : (  
-            <h2><br></br>PLEASE REGISRTER OR LOGIN </h2>
+            <h2 style={{textAlign:'center'}}><br></br>PLEASE REGISRTER OR LOGIN </h2>
         )}
 
         </>

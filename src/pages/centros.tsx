@@ -19,7 +19,7 @@ const Centros = () => {
         />
       </Head>
       <main>
-        <Header path="/" text="Inicio" page="admin" />
+        <Header path="/" text="Inicio" page="general" />
         <TitleAndImg title="Centros de Adopción" img={centrosImg} />
       </main>
     </>

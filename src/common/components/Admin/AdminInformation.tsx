@@ -3,9 +3,7 @@ import Image from 'next/image'
 import styles from './Style.module.scss';
 
 export interface Props {
-    path: string,
-    pathImage: any,
-    altImage: string
+
 }
 
 export const AdminInformation: React.FC<Props> = ({

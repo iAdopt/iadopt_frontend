@@ -23,7 +23,7 @@ export const AdminAddAnimalForm = (props:any) => {
     const submitForm = async (event:any) => {
         event.preventDefault();
         try {
-            await fetch('/api', {
+            await fetch('http://localhost:8080/api/animals/all', {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: {
@@ -32,9 +32,35 @@ export const AdminAddAnimalForm = (props:any) => {
                 },
                 body: JSON.stringify(animal)
             });
+            setAnimalState({
+                specie: "",
+                name: "",
+                gender: "",
+                age: "",
+                description: "",
+                vaccinated: "",
+                sterilized: "",
+                identified: "",
+                otherissues: "",
+                image: "",
+                status: ""
+            })
 
         } catch(error) {
             console.error('Error to submit information:', error)
+            setAnimalState({
+                specie: "",
+                name: "",
+                gender: "",
+                age: "",
+                description: "",
+                vaccinated: "",
+                sterilized: "",
+                identified: "",
+                otherissues: "",
+                image: "",
+                status: ""
+            })
         }
      }
 

@@ -5,6 +5,8 @@ import { AdminInformation } from '../../common/components/Admin/AdminInformation
 import { AdminAddAnimalForm } from '../../common/components/Admin/AdminAddAnimalForm';
 
 import { SectionAnimalsView } from '../../common/components/SectionAnimalsView'
+import { RegisterForm } from '../../common/components/Authorization/RegisterForm';
+import { LoginForm } from '../../common/components/Authorization/LoginForm';
 
 
 
@@ -32,7 +34,11 @@ const Admin = () => {
                 <AdminAddAnimalForm />
             </>
         ) : (  
+            <>
             <h2 style={{textAlign:'center'}}><br></br>PLEASE REGISRTER OR LOGIN </h2>
+                <RegisterForm />
+                <LoginForm />
+            </>
         )}
 
         </>

@@ -28,7 +28,7 @@ console.log('ANIMALS DATA - VISUAL01 :::::',animalsData)
                             {animal.status ? <div className={animal.status == 'urgent' ? styles.labelUrgent : styles.labelNew}>{animal.status}</div> : ''}
                         </div>
                         <div className={styles.animalBoxInfo}>
-                            <p>{animal.age} |</p>
+                            <p>{animal.age != 0 ? `${animal.age} año(s)` : (`${animal.age} meses`)}</p> {/* Pending to get years and months  */}
                             <p>{animal.gender == 'female' ? '♀ Hembra' : '♂ Macho'} |</p>
                             <p>{animal.location}</p>
                         </div>

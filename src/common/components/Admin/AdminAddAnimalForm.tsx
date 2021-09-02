@@ -33,8 +33,6 @@ export const AdminAddAnimalForm = (props:any) => {
                 },
                 body: JSON.stringify(animal)
             });
-            console.log(animal)
-
             setAnimalState({
                 species: "",
                 name: "",

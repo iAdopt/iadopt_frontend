@@ -6,7 +6,7 @@ import { useState, useRef } from 'react'
       
 export const AdminAddAnimalForm = (props:any) => {
     const [animal, setAnimalState] = useState({
-        specie: "",
+        species: "",
         name: "",
         gender: "",
         age: "",
@@ -14,26 +14,29 @@ export const AdminAddAnimalForm = (props:any) => {
         vaccinated: "",
         sterilized: "",
         identified: "",
-        otherissues: "",
+        issues: "",
         image: "",
-        status: ""
-    })
+        status: "",
+        tags: [""],
+        center: '0c266122-e95f-4a7c-88b6-5794c281896a'
+    });
     const form = useRef(null);
 
     const submitForm = async (event:any) => {
         event.preventDefault();
         try {
-            await fetch('http://localhost:8080/api/animals/all', {
+            await fetch('http://localhost:8080/api/animals/post/animal/', {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
                     'Accept' : 'application/json',
                     'Content-type': 'application/json'
                 },
                 body: JSON.stringify(animal)
             });
+            console.log(animal)
+
             setAnimalState({
-                specie: "",
+                species: "",
                 name: "",
                 gender: "",
                 age: "",
@@ -41,15 +44,17 @@ export const AdminAddAnimalForm = (props:any) => {
                 vaccinated: "",
                 sterilized: "",
                 identified: "",
-                otherissues: "",
+                issues: "",
                 image: "",
-                status: ""
+                status: "",
+                center:"0c266122-e95f-4a7c-88b6-5794c281896a",
+                tags: [""]
             })
 
         } catch(error) {
             console.error('Error to submit information:', error)
             setAnimalState({
-                specie: "",
+                species: "",
                 name: "",
                 gender: "",
                 age: "",
@@ -57,9 +62,11 @@ export const AdminAddAnimalForm = (props:any) => {
                 vaccinated: "",
                 sterilized: "",
                 identified: "",
-                otherissues: "",
+                issues: "",
                 image: "",
-                status: ""
+                status: "",
+                center: '0c266122-e95f-4a7c-88b6-5794c281896a',
+                tags: [""]
             })
         }
      }
@@ -79,8 +86,8 @@ export const AdminAddAnimalForm = (props:any) => {
                 <h4>Información general</h4>
                 <div className={styles.block}>
                     <div className={styles.inputs}>
-                        <label htmlFor="specie">Especie:</label>
-                        <select name="specie" value={animal.specie} onChange={handleChange}>
+                        <label htmlFor="species">Especie:</label>
+                        <select name="species" value={animal.species} onChange={handleChange}>
                             <option value="">Seleciona una especie de animal</option>
                             <option value="cat">Gato</option>
                             <option value="dog">Perro</option>

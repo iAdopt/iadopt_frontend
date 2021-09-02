@@ -19,7 +19,7 @@ const SingleAnimalPage = () => {
     console.log('storeSingleAnimal', storeSingleAnimal)
 
     const SingleAnimalDataFetch = async () => {
-        const response = await fetch(`http://localhost:8080/api/animals/byId/${animalId}`);
+        const response = await fetch(`http://localhost:8080/api/animals/get/byId/${animalId}`);
         const data = await response.json();
         console.log('Single Animal', data)
         selectAnimal(data)  

@@ -18,7 +18,7 @@ import { withTheme } from 'styled-components';
 
 
     const handleChange = (e:any) => {
-        setFiltersState((prev:any) => ({...prev, location:e.target.value}));
+        setFiltersState((prev:any) => ({...prev, location:e.target.value==='allLocation'?'':e.target.value}));
     }
 
     return(
@@ -27,9 +27,9 @@ import { withTheme } from 'styled-components';
             <select style={styles.select} value={filtersState} name="catSelectRegion" id="catSelectRegion" onChange={handleChange}> 
                 <option key="allLocation" value="allLocation"> Todas las comarcas</option>
                 { selectState.map((opt:any) => {
-                    return <option key={opt.id} value={opt.id}>{opt.content}</option>
-                  })
-                }   
+                    return <option key={opt.id} value={opt.id}>{opt.content}</option> 
+                  })                 
+                }                 
             </select>
         </>
 

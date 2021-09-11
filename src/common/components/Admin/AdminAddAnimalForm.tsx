@@ -178,7 +178,7 @@ export const AdminAddAnimalForm = (props:any) => {
 
                     <div className={styles.textZone}>
                         <label htmlFor="medicalDescription">Otras patologias:</label>
-                        <textarea name="medicalDescription" placeholder="Descripción de otras patologías del animal" value={animal.otherissues} onChange={handleChange}/>
+                        <textarea name="medicalDescription" placeholder="Descripción de otras patologías del animal" value={animal.issues} onChange={handleChange}/>
                     </div>
                 </div>
 

@@ -34,6 +34,7 @@ console.log('ANIMALS DATA - VISUAL01 :::::',animalsData)
                         </div>
                 </div>          
             ))) : (<div>Loading...</div>)}
+        {/* <p>{animal.age != 0 ? `${animal.age} año(s)` : (`${animal.age} meses`)}</p> */}
        </div> 
     )
  }

@@ -8,15 +8,22 @@
         flex-wrap: wrap;
     }
     .animalBoxv01 {
-        width: 277px;
+        width: 270px;
         height: 257px;
         background: #F9F9F9;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 24px;
         margin: 6px;
         cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        padding-top: 3px;
+        z-index: 1;
         &:hover {
-            border: 2px solid #ffd47d;
+            background: rgba(251, 246, 214, 0.811);
+            box-shadow: 1px 1px 10px -8px #FF8080, -10px 3px 10px -7px #FFE488, -9px -7px 10px -8px #8CFF85, 10px -7px 10px -8px #80C7FF, 10px 8px 10px -8px #E488FF, -6px 8px 10px -8px #FF616B, -1px -9px 10px -8px #8E5CFF;
+            //box-shadow: 0px 0px 12px 0px  $main-color;
+
         }
         .identification {
             display: flex;
@@ -40,10 +47,10 @@
         }
 
         .photo {
-            width: 273px;
+            width: 269px;
             height: 181px;
             mix-blend-mode: normal;
-            border: 3px solid #FFFF;
+            border: 2px solid #fff;
             box-sizing: border-box;
             border-radius: 24px;
             background-size: cover;
@@ -165,5 +172,4 @@
             }
         }
     }
-
 }

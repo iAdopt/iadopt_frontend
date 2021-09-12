@@ -35,7 +35,7 @@ const Admin = () => {
             </>
         ) : (  
             <>
-            <h2 style={{textAlign:'center'}}><br></br>PLEASE REGISRTER OR LOGIN </h2>
+            <h2 style={{textAlign:'center'}}><br></br>REGISTRESE O INICIE SESIÓN PARA CONTINUAR </h2>
                 <RegisterForm />
                 <LoginForm />
             </>

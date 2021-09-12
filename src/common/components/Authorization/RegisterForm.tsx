@@ -10,7 +10,8 @@ export const RegisterForm = (props:any) => {
         email: "",
         password: "",
         centerName: "",
-        centerAdress: ""
+        centerAdress: "",
+        selectState:""
     });
     const form = useRef(null);
 

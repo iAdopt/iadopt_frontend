@@ -20,7 +20,7 @@ const animalsData = useSelector((state) => state.allAnimals[1]);  //get all anim
                                 {animal.status ? <span className={animal.status == 'urgent' ? styles.labelUrgent : styles.labelNew}>{animal.status}</span> : ''}
                             </div>
 
-                            <p><b>Edad:</b>{animal.age}</p>
+                            <p><b>Edad:</b>{animal.years != 0 ? ` ${animal.years} año(s) y ${animal.months} meses` : `${animal.months} meses`}</p>
                             <p><b>Género:</b>{animal.gender == 'female' ? '♀ Hembra' : '♂ Macho'}</p>
                             <p><b>Carácter:</b></p>                           
                         </div>
@@ -29,11 +29,11 @@ const animalsData = useSelector((state) => state.allAnimals[1]);  //get all anim
                             <p>{animal.description}</p>
                         </div>
                         <div>
-                            <h4>Información addicional:</h4>
-                            <p><b>Vacunación:</b>{animal.name}</p>
-                            <p><b>Esterilización:</b>{animal.name}</p>
-                            <p><b>Identificación CIF:</b>{animal.name}</p>
-                            <p><b>Otras patologías:</b>{animal.name}</p>
+                            <h4>Información addicional:</h4>                            
+                            <p><b>Vacunación:</b>{animal.vaccinated===true ? ' Sí' : ' No'}</p>
+                            <p><b>Esterilización:</b>{animal.sterilized===true ? ' Sí' : ' No'}</p>
+                            <p><b>Identificación CIF:</b>{animal.identified===true ? ' Sí':' No'}</p>
+                            <p><b>Otras patologías:</b>{animal.issues}</p>
                         </div>
                         <div>
                             <h4>Contacto</h4>

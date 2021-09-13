@@ -17,11 +17,11 @@ const SingleAnimalPage = () => {
     const {selectAnimal} = bindActionCreators(actionCreators, useDispatch());
     const storeSingleAnimal = useSelector((state) => state.singleAnimal[1]);
     console.log('storeSingleAnimal', storeSingleAnimal)
-
+    
     const SingleAnimalDataFetch = async () => {
         const response = await fetch(`http://localhost:8080/api/animals/get/byId/${animalId}`);
-        const data = await response.json();
-        console.log('Single Animal', data)
+        const data = await response.json();   
+        console.log('Single Animal', data)    
         selectAnimal(data)  
     }
 
@@ -72,7 +72,7 @@ const SingleAnimalPage = () => {
                                 </div>
         
                                 <div className={styles.basicInfo}>
-                                    <p><b>Edad:</b> {storeSingleAnimal.birthdate}</p>
+                                    <p><b>Edad:</b> {storeSingleAnimal.years!==0? `${storeSingleAnimal.years} año(s) y ${storeSingleAnimal.months} meses`: `${storeSingleAnimal.months} meses`}</p>
                                     <p><b>Género:</b>  {storeSingleAnimal.gender == 'female' ? '♀ Hembra' : '♂ Macho'}</p>
                                 </div>
         
@@ -84,15 +84,15 @@ const SingleAnimalPage = () => {
         
                                     <div className={styles.additionalInfo}>
                                         <h4>Información Médica</h4>
-                                        <p><b>Vacunación:</b> <span>{dataExampleAnimal.medicalInfo.vaccination ? "Sí" : "No"}</span></p>
-                                        <p><b>Esterilización:</b>  <span>{dataExampleAnimal.medicalInfo.sterilized ? "Sí" : "No"}</span></p>
-                                        <p><b>Microchip:</b>  <span>{dataExampleAnimal.medicalInfo.chip ? "Sí" : "No"}</span></p>
-                                        <p><b>Otras patologías:</b><br/> {dataExampleAnimal.medicalInfo.other}</p>
+                                        <p><b>Vacunación:</b> <span>{storeSingleAnimal.vaccination===true ? "Sí" : "No"}</span></p>
+                                        <p><b>Esterilización:</b>  <span>{storeSingleAnimal.sterilized===true ? "Sí" : "No"}</span></p>
+                                        <p><b>Microchip:</b>  <span>{storeSingleAnimal.chip===true ? "Sí" : "No"}</span></p>
+                                        <p><b>Otras patologías:</b><br/> {storeSingleAnimal.issues}</p>
                                     </div>
-        
+                                    
                                     <div className={styles.caracterInfo}>
                                         <h4>Carácter</h4>
-                                        {dataExampleAnimal.character.map((e, i) => <span key={i}>{e}</span>)}
+                                        {!storeSingleAnimal.tags? `Sin descripción`:storeSingleAnimal.tags.map((e:string, i:number) => <span key={i}>{e}</span>)}
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@ const SingleAnimalPage = () => {
                         <div className={styles.sectionCenter}>
                             <div className={styles.center}>
                                 <h4>Localización del Animal</h4>
-                                <p><b>Centro:</b> {storeSingleAnimal.location}</p>
+                                <p><b>Centro:</b> {storeSingleAnimal.name}</p>
                                 <p><b>Dirección:</b> {storeSingleAnimal.location}</p>
                                 <br/>
                                 <iframe

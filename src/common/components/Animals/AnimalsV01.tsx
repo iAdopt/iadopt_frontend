@@ -3,7 +3,6 @@ import { useSelector } from "react-redux"
 import styles from './Style.module.scss';
 import Link from 'next/link'
 
-
       
 export const AnimalsV01 = ({
 id
@@ -28,7 +27,7 @@ console.log('ANIMALS DATA - VISUAL01 :::::',animalsData)
                             {animal.status ? <div className={animal.status == 'urgent' ? styles.labelUrgent : styles.labelNew}>{animal.status}</div> : ''}
                         </div>
                         <div className={styles.animalBoxInfo}>
-                            <p>{animal.age != 0 ? `${animal.age} año(s)` : (`${animal.age} meses`)}</p> {/* Pending to get years and months  */}
+                            <p>{animal.years !== 0 ? ` ${animal.years} año(s) y ${animal.months} meses` : `${animal.months} meses`}</p> {/* Pending to get years and months  */}                            
                             <p>{animal.gender == 'female' ? '♀ Hembra' : '♂ Macho'} |</p>
                             <p>{animal.location}</p>
                         </div>
@@ -38,4 +37,4 @@ console.log('ANIMALS DATA - VISUAL01 :::::',animalsData)
     )
  }
       
-      
+

@@ -77,8 +77,8 @@
             margin-bottom: 20px;
         }
     }
-    span {
-        background-color: $cat-color;
+    span:not(:empty) {
+        background-color: $center-color;
         padding: 2px 10px;
         border-radius: 8px;
         display: inline-block;

@@ -149,6 +149,13 @@
                     }
                 }
             }
+            .tags:not(:empty) {
+                background-color: $center-color;
+                padding: 2px 10px;
+                border-radius: 8px;
+                display: inline-block;
+                margin: 2px;
+            }
             .buttonsBox {
                 display: flex;
                 flex-direction:column;

@@ -24,7 +24,7 @@ console.log('ANIMALSDATA', animalsData[0])
                             <p><b>Edad:</b>{animal.years != 0 ? ` ${animal.years} año(s) y ${animal.months} meses` : `${animal.months} meses`}</p>
                             <p><b>Género:</b>{animal.gender == 'female' ? '♀ Hembra' : '♂ Macho'}</p>
                             <div><p><b>Carácter:</b></p>    
-                            {!animal.tags ?  <span>Sin descripción</span> : animal.tags.map((e:string, i:number) => <span key={i}>{e}</span>)}
+                            {animal.tags ? animal.tags.map((e:string, i:number) => <span className={styles.tags} key={i}>{e}</span>) : <span className={styles.tags}>Sin descripción</span> }
                             </div>                       
                         </div>
                         <div>

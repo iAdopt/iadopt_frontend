@@ -20,7 +20,7 @@ export const AdminAddAnimalForm = (props:any) => {
         issues: "",
         blob: "",
         status: "",
-        tags: ["Listo para adoptar"],
+        tags: [""],
         center: '0c266122-e95f-4a7c-88b6-5794c281896a'
     });
     const form = useRef(null);
@@ -117,7 +117,7 @@ export const AdminAddAnimalForm = (props:any) => {
         <div className={styles.adminAddAnimal}>
             <h3>Añadir un animal al centro</h3>
 
-            <form  className={styles.form} ref={form} onSubmit={submitForm}>
+            <form className={styles.form} ref={form} onSubmit={submitForm}>
                 <h4>Información general</h4>
                 <div className={styles.block}>
                     <div className={styles.inputs}>

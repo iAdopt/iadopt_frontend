@@ -92,7 +92,7 @@ const SingleAnimalPage = () => {
                                     
                                     <div className={styles.caracterInfo}>
                                         <h4>Carácter</h4>
-                                        {!storeSingleAnimal.tags? `Sin descripción`:storeSingleAnimal.tags.map((e:string, i:number) => <span key={i}>{e}</span>)}
+                                        {!storeSingleAnimal.tags ? `Sin descripción`:storeSingleAnimal.tags.map((e:string, i:number) => <span key={i}>{e}</span>)}
                                     </div>
                                 </div>
                             </div>

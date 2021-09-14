@@ -8,9 +8,10 @@ export const AnimalsV02 = ({
 
 /* ANIMALS DATA STATE FROM REDUX*/
 const animalsData = useSelector((state) => state.allAnimals[1]);  //get all animals
+console.log('ANIMALSDATA', animalsData[0])
     return(
         <div className={styles.animalsV02}>
-            {animalsData.map((animal, i) => (
+            {animalsData.map((animal, i:number) => (
                 <div key={i} className={styles.animalBoxv02}>
                     <div className={styles.photo} style={{backgroundImage: "url(data:image/jpeg;base64," + animal.image + ")"}}></div>
                     <div className={styles.animalBoxInfo}>
@@ -22,7 +23,9 @@ const animalsData = useSelector((state) => state.allAnimals[1]);  //get all anim
 
                             <p><b>Edad:</b>{animal.years != 0 ? ` ${animal.years} año(s) y ${animal.months} meses` : `${animal.months} meses`}</p>
                             <p><b>Género:</b>{animal.gender == 'female' ? '♀ Hembra' : '♂ Macho'}</p>
-                            <p><b>Carácter:</b></p>                           
+                            <div><p><b>Carácter:</b></p>    
+                            {!animal.tags ?  <span>Sin descripción</span> : animal.tags.map((e:string, i:number) => <span key={i}>{e}</span>)}
+                            </div>                       
                         </div>
                         <div>
                             <h4>Descripción:</h4>

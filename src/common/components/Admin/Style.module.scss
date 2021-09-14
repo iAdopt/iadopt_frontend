@@ -84,6 +84,10 @@
             h4 {
                 width: 100%;
             }
+            .textarea {
+                flex-grow: 1;
+                width: 100%;
+            }
             .inputs {
                 display: flex;
                 flex-direction: column;
@@ -97,8 +101,15 @@
                 input[type="date"] {
                     padding: 2.5px;
                 }
+                .checkbox {
+                    display: flex; 
+                    flex-direction: row;
+                    flex-wrap: wrap; 
+                    width: 50%;
+              }
             }
         }
+
         .blockMedical {
             display: flex;
             flex-direction: column;
@@ -146,11 +157,27 @@
             border: 1px solid $center-color;
             margin-right: 10px;
             &:hover {
-                background-color: #91b3bd;
+                background-color: darken( $center-color,15%);
             }
 
         }
-
-
+        .uploadImgBtn {
+            align-self: center;
+            background-color: $main-color;
+            color: black;
+            padding: 0.5rem;
+            font-weight: bold;
+            font-family: sans-serif;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 1rem;
+            width: 60%;
+            display: flex;
+            justify-content: space-evenly;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+            &:hover {
+                background-color: darken($main-color,15%);
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ const animalsData = useSelector((state) => state.allAnimals[1]);  //get all anim
         <div className={styles.animalsV02}>
             {animalsData.map((animal, i) => (
                 <div key={i} className={styles.animalBoxv02}>
-                    <div className={styles.photo} style={{backgroundImage: "url(" + animal.image + ")"}}></div>
+                    <div className={styles.photo} style={{backgroundImage: "url(data:image/jpeg;base64," + animal.image + ")"}}></div>
                     <div className={styles.animalBoxInfo}>
                         <div>
                         <div className={styles.identification}>

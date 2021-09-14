@@ -1,6 +1,9 @@
 
 import styles from './Style.module.scss';
-import { useState, useRef } from 'react'
+import { useState, useRef } from 'react';
+import Image from 'next/image';
+import v01 from '../../../../public/v01.png'
+
 
 
       
@@ -15,7 +18,7 @@ export const AdminAddAnimalForm = (props:any) => {
         sterilized: "",
         identified: "",
         issues: "",
-        image: "",
+        blob: "",
         status: "",
         tags: [""],
         center: '0c266122-e95f-4a7c-88b6-5794c281896a'
@@ -43,7 +46,7 @@ export const AdminAddAnimalForm = (props:any) => {
                 sterilized: "",
                 identified: "",
                 issues: "",
-                image: "",
+                blob: "",
                 status: "",
                 center:"0c266122-e95f-4a7c-88b6-5794c281896a",
                 tags: [""]
@@ -61,19 +64,34 @@ export const AdminAddAnimalForm = (props:any) => {
                 sterilized: "",
                 identified: "",
                 issues: "",
-                image: "",
+                blob: "",
                 status: "",
                 center: '0c266122-e95f-4a7c-88b6-5794c281896a',
                 tags: [""]
             })
         }
-     }
+    }
 
     const handleChange = (e:any) => {
         setAnimalState({
             ...animal,
             [e.target.name]: e.target.value
         })
+    }
+
+    const handlePictureChange = (e:any) => {
+        const file = e.target.files[0];
+        console.log('event', file);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          var b64 = reader.result.replace(/^data:.+;base64,/, '');
+          console.log('b64', b64);
+          setAnimalState({
+            ...animal,
+            [e.target.name]: b64
+        })
+        }; 
+        reader.readAsDataURL(file)  
     }
 
     return(
@@ -160,17 +178,17 @@ export const AdminAddAnimalForm = (props:any) => {
                     <h5>Microchip identificativo:</h5>
                     <div className={styles.radios}>
                         <div>
-                            <input type="radio" name="identified"  value='1'
+                            <input type="radio" name="identified"  value='true'
                                 onChange={(e:any) => { setAnimalState(animal => ({...animal, [e.target.name]:e.target.value}))}}
-                                checked={animal.identified == '1' ? true : false} 
+                                checked={animal.identified == 'true' ? true : false} 
                             />
                             <label htmlFor="identified">Si</label>
                         </div>
 
                         <div>
-                            <input type="radio" name="noIdentified" id="identified" value='0' 
+                            <input type="radio" name="noIdentified" id="identified" value='false' 
                                 onChange={(e:any) => { setAnimalState(prev => ({...animal, [e.target.id]:e.target.value}))}}
-                                checked={animal.identified == '0' ? true : false} 
+                                checked={animal.identified == 'false' ? true : false} 
                             />
                             <label htmlFor="noIdentified">No</label>
                         </div>
@@ -186,7 +204,8 @@ export const AdminAddAnimalForm = (props:any) => {
                 <div className={styles.block}>
                     <div className={styles.inputs}>
                         <label htmlFor="image">Imágen del animal:</label>
-                        <input type="file" name="image" onChange={handleChange} />
+                        <input style={{display:'block'}} accept="image/jpeg" type="file" name="blob" onChange={handlePictureChange} />
+                        {/* <Image id="imageUploaded" src={v01} height="200" alt="Animal photo"/> */}
                     </div>
                 </div>
 

@@ -40,7 +40,7 @@ export const FiltersGroup: React.FC<Props> = ({
                 "type": "DOG",
                 "location": "Barcelona",
                 "gender": "male",
-                "image": "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg",
+                "image": "/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAIlA9ADASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAAAQACAwQFBgcI/8QAPxAAAQQBAwMDAgUCBAYBAgcAAQACAxEEBSExEkFRBhNhInEUMoGRoUJSI7HB0QcVM0Ni4XIWJBdTgpKy8PH/xAAaAQEBAQEBAQEAAAAAAAAAAAAAAQIDBAUG/8QAKREBAQACAwEAAwEAAgEEAwAAAAECEQMSITEEE0FRImEFMnGBkRQzof/aAAwDAQACEQMRAD8AmFIpqcvO2I2RCA/dFARyj3Te...",
                 "description": "Just like for humans, the five senses play an important role in helping felines understand their surroundings. But the way cats use those senses is often very different than how we do."
             },
             {
@@ -95,7 +95,6 @@ export const FiltersGroup: React.FC<Props> = ({
 
 
     useEffect(() => {
-        console.log({...filtersState, species:animalType});
         AnimalsDataFetch({...filtersState, species:animalType});
         return () => {}
     }, [filtersState])

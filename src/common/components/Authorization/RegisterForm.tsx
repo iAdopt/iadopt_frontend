@@ -18,19 +18,19 @@ export const RegisterForm = (props:any) => {
     const submitForm = async (event:any) => {
         event.preventDefault();
         console.log(user)
-        // try {
-        //     await fetch('http://localhost:8080/api/animals', {
-        //         method: 'GET',
-        //         headers: {
-        //             'Accept' : 'application/json',
-        //             'Content-type': 'application/json'
-        //         },
-        //         body: JSON.stringify(user)
-        //     });
+        try {
+            await fetch('http://localhost:8080/api/centers/post/user', {
+                method: 'POST',
+                headers: {
+                    'Accept' : 'application/json',
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            });
 
-        // } catch(error) {
-        //     console.error('Error to submit information:', error)
-        // }
+        } catch(error) {
+            console.error('Error to submit information:', error)
+        }
      }
 
     const handleChange = (e:any) => {

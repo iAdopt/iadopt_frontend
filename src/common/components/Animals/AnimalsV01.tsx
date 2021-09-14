@@ -19,7 +19,7 @@ console.log('ANIMALS DATA - VISUAL01 :::::',animalsData)
                 <div key={i} className={styles.animalBoxv01}>
                         <Link href={{pathname: ROUTE_ANIMAL_ID, query: {id: animal.id}}} >
                             {/* <a target="_blank"> */}
-                                <div className={styles.photo} style={{backgroundImage: "url(" + animal.image + ")"}}></div>
+                                <div className={styles.photo} style={{backgroundImage: "url(data:image/jpeg;base64," + animal.image + ")"}}></div>
                             {/* </a> */}
                         </Link>
                         <div className={styles.identification}>
@@ -27,7 +27,7 @@ console.log('ANIMALS DATA - VISUAL01 :::::',animalsData)
                             {animal.status ? <div className={animal.status == 'urgent' ? styles.labelUrgent : styles.labelNew}>{animal.status}</div> : ''}
                         </div>
                         <div className={styles.animalBoxInfo}>
-                            <p>{animal.years !== 0 ? ` ${animal.years} año(s) y ${animal.months} meses` : `${animal.months} meses`}</p> {/* Pending to get years and months  */}                            
+                            <p>{animal.years !== 0 ? ` ${animal.years} año(s) |` : `${animal.months} meses |`}</p> {/* Pending to get years and months  */}                            
                             <p>{animal.gender == 'female' ? '♀ Hembra' : '♂ Macho'} |</p>
                             <p>{animal.location}</p>
                         </div>

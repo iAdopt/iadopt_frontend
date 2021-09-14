@@ -5,7 +5,6 @@
     margin: 80px 42px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     @include forTabletUp {
         flex-direction: row;
     }

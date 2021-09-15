@@ -103,10 +103,17 @@
                 }
                 .checkbox {
                     display: flex; 
-                    flex-direction: row;
-                    flex-wrap: wrap; 
-                    width: 50%;
-              }
+                    flex-direction: column;
+                    @include forTabletUp {
+                        flex-direction: row;
+                        flex-wrap: wrap; 
+                        width: 50%;
+                    }
+                    .checkboxEl {
+                        width: 50%;
+                    }
+                }
+                
             }
         }
 

@@ -1,5 +1,7 @@
 import {useSelector} from "react-redux"
 import styles from './Style.module.scss';
+import Image from 'next/image'
+import globalImg from '../../../../public/noAnimImg.svg'
 
       
 export const AnimalsV02 = ({
@@ -13,7 +15,11 @@ console.log('ANIMALSDATA', animalsData[0])
         <div className={styles.animalsV02}>
             {animalsData.map((animal, i:number) => (
                 <div key={i} className={styles.animalBoxv02}>
-                    <div className={styles.photo} style={{backgroundImage: "url(data:image/jpeg;base64," + animal.image + ")"}}></div>
+                    {/* <div className={styles.photo} style={{backgroundImage: "url(data:image/jpeg;base64," + animal.image + ")"}}></div> */}
+                    {animal.blob ? 
+                        (<div className={styles.photo} style={{backgroundImage: 'url("data:image/*;base64,' + animal.image + '")'}}></div>) : 
+                        (<Image src={globalImg} width={250} height={200} alt="global"/>)
+                    }
                     <div className={styles.animalBoxInfo}>
                         <div>
                         <div className={styles.identification}>

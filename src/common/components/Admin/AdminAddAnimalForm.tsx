@@ -93,24 +93,25 @@ export const AdminAddAnimalForm = (props:any) => {
                 tags: prev.tags.filter((tag:any)=> tag !==e.target.value)}
             ))
         }
-      }
-    const handlePictureChange = (e:any) => {
-        let uploadText = document.getElementById('fileImg');
-        const file = e.target.files[0];
-        const reader = new FileReader();
-        /* Send image as base64 */
-        reader.onloadend = () => {
-          var b64 = reader.result.replace(/^data:.+;base64,/, '');
-          console.log('b64', b64);
-            setAnimalState({
-                ...animal,
-                [e.target.name]: b64
-            })
-        }; 
-        reader.readAsDataURL(file);  
+    }
 
-        /* Change text once image is uploaded */
+    const toBase64 = (file:File) => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+
+    const handlePictureChange = async (e:any) => {
+        let uploadText = document.getElementById('fileImg');
         uploadText.textContent = e.target.files[0].name;
+        
+        const file = e.target.files[0];
+        const imgBase64 = await toBase64(file);
+        setAnimalState({
+            ...animal,
+            [e.target.name]: imgBase64
+        })
     }
 
     return(
@@ -162,10 +163,10 @@ export const AdminAddAnimalForm = (props:any) => {
                                 "Juguetón", 
                                 "Arisco", 
                                 "Miedoso", 
-                                "Tranquilo"].map((tag, i) => {
+                                "Glotón"].map((tag, i) => {
                                   return (
                                     <>
-                                        <div className={styles.checkbox} key={i}>
+                                        <div className={styles.checkboxEl} key={i}>
                                           <input type="checkbox" id={tag} value={tag} onChange={handleCheckboxChange} />
                                           <label htmlFor={tag}>{tag}</label>
                                         </div>
@@ -248,7 +249,7 @@ export const AdminAddAnimalForm = (props:any) => {
                 <h4>Imágenes</h4>
                 <div className={styles.block}>
                     <div className={styles.inputs}>
-                        <input style={{display:'none'}} accept="image/jpeg" type="file" name="blob" id="blob" onChange={handlePictureChange} />
+                        <input style={{display:'none'}} accept="image/*" type="file" name="blob" id="blob" onChange={handlePictureChange} />
                         <span style={{textAlign: 'center'}} id="fileImg">Ningún archivo seleccionado</span>
                         <label className={styles.uploadImgBtn} htmlFor="blob">
                             Subir imagen del animal 

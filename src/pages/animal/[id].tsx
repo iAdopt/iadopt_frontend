@@ -8,7 +8,8 @@ import { useEffect } from 'react';
 import { actionCreators } from "../../../stateStore/index"
 import { useSelector, useDispatch } from "react-redux"
 import { bindActionCreators } from 'redux';
-import { store } from '../../../stateStore/store';
+import Image from 'next/image'
+import globalImg from '../../../../public/noAnimImg.svg'
 
 
 const SingleAnimalPage = () => {
@@ -51,7 +52,6 @@ const SingleAnimalPage = () => {
     //const MAP_MODE = place;
     //const IFRAME_MAP_URL = `https://www.google.com/maps/embed/v1/${MAP_MODE}?key=YOUR_API_KEY&PARAMETERS`
 
-
     return(
         <>
             <Head>
@@ -63,7 +63,10 @@ const SingleAnimalPage = () => {
                     {storeSingleAnimal != undefined ? (
                     <>
                         <div className={styles.sectionAnimal}>
-                            <div className={styles.photo} style={{backgroundImage: "url(" + storeSingleAnimal.image + ")"}}></div>
+                            {storeSingleAnimal.blob ? 
+                                (<div className={styles.photo} style={{backgroundImage: 'url("data:image/*;base64,' + storeSingleAnimal.image + '")'}}></div>) : 
+                                (<Image src={globalImg} width={250} height={200} alt="global"/>)
+                            }
                             <div className={styles.animalInformation}>
                                 <div className={styles.nameCTAinfo}>
                                     <h1>{storeSingleAnimal.name}</h1>

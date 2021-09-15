@@ -2,6 +2,8 @@
 import { useSelector } from "react-redux"
 import styles from './Style.module.scss';
 import Link from 'next/link'
+import Image from 'next/image'
+import globalImg from '../../../../public/noAnimImg.svg'
 
       
 export const AnimalsV01 = ({
@@ -19,7 +21,10 @@ console.log('ANIMALS DATA - VISUAL01 :::::',animalsData)
                 <div key={i} className={styles.animalBoxv01}>
                         <Link href={{pathname: ROUTE_ANIMAL_ID, query: {id: animal.id}}} >
                             {/* <a target="_blank"> */}
-                                <div className={styles.photo} style={{backgroundImage: "url(data:image/jpeg;base64," + animal.image + ")"}}></div>
+                            {animal.blob  ? 
+                                (<div className={styles.photo} style={{backgroundImage: 'url("data:image/*;base64,' + animal.image + '")'}}></div>) : 
+                                (<Image src={globalImg} width={1} height={180} alt="global"/>)
+                            }
                             {/* </a> */}
                         </Link>
                         <div className={styles.identification}>

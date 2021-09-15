@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { AdminInformation } from '../../common/components/Admin/AdminInformation';
 import { AdminAddAnimalForm } from '../../common/components/Admin/AdminAddAnimalForm';
 
-import { SectionAnimalsView } from '../../common/components/SectionAnimalsView'
 import { RegisterForm } from '../../common/components/Authorization/RegisterForm';
 import { LoginForm } from '../../common/components/Authorization/LoginForm';
 

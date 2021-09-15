@@ -83,7 +83,7 @@ export const FiltersGroup: React.FC<Props> = ({
 
     const AnimalsDataFetch = async (args: any) => {
         const response = await fetch(
-          'http://localhost:8080/api/animals/get/byFilter/', {
+          'http://localhost:8080/api/animals/byFilter/', {
             method: 'post',
             body: JSON.stringify(args),
             headers: { 'Content-Type': 'application/json' }

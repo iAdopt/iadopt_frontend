@@ -23,6 +23,10 @@ export const Header: React.FC<Props> = ({
     ...props
 }) => {
     const router = useRouter();
+    const handleRegister = (e:any) => {
+        e.preventDefault();
+    }
+
     return(
         <>
             {page == 'general' ? (        
@@ -47,7 +51,7 @@ export const Header: React.FC<Props> = ({
                         ) : (
                             <>
                                 <button className={styles.login} onClick={() => setLogstate(true)}>Iniciar sesión</button>
-                                <button className={styles.singin} onClick={() => setLogstate(true)}>Registrarse</button>
+                                <button className={styles.singin} onClick={handleRegister}>Registrarse</button>
                             </>
                         )}
 

@@ -48,8 +48,8 @@
         }
 
         .photo {
-            width: 305px;
-            height: 181px;
+            // width: 305px;
+            // height: 181px;
             mix-blend-mode: normal;
             border: 2px solid #fff;
             box-sizing: border-box;
@@ -57,6 +57,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            object-fit: cover;
         }
         .animalBoxInfo {
             display: flex;
@@ -94,8 +95,9 @@
             width: auto;
         }
         .photo {
-            width: 257px;
-            height: 257px;
+            // width: 257px;
+            // height: 257px;
+            object-fit: cover;
             mix-blend-mode: normal;
             border: 3px solid #FFFFFF;
             box-sizing: border-box;

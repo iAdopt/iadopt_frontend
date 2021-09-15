@@ -20,7 +20,7 @@ export const AdminAddAnimalForm = (props:any) => {
         issues: "",
         blob: "",
         status: "",
-        tags: [""],
+        tags: ["Adoptable"],
         center: '0c266122-e95f-4a7c-88b6-5794c281896a'
     });
     const form = useRef(null);
@@ -28,7 +28,7 @@ export const AdminAddAnimalForm = (props:any) => {
     const submitForm = async (event:any) => {
         event.preventDefault();
         try {
-            await fetch('http://localhost:8080/api/animals/post/animal/', {
+            await fetch('http://localhost:8080/api/animals/', {
                 method: 'POST',
                 headers: {
                     'Accept' : 'application/json',
@@ -49,7 +49,7 @@ export const AdminAddAnimalForm = (props:any) => {
                 blob: "",
                 status: "",
                 center:"0c266122-e95f-4a7c-88b6-5794c281896a",
-                tags: [""]
+                tags: ["Adoptable"]
             })
 
         } catch(error) {
@@ -67,7 +67,7 @@ export const AdminAddAnimalForm = (props:any) => {
                 blob: "",
                 status: "",
                 center: '0c266122-e95f-4a7c-88b6-5794c281896a',
-                tags: [""]
+                tags: ["Adoptable"]
             })
         }
     }
@@ -98,11 +98,13 @@ export const AdminAddAnimalForm = (props:any) => {
     const toBase64 = (file:File) => new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
+        reader.onload = () => resolve(reader.result.replace(/^data:.+;base64,/, ''));
         reader.onerror = error => reject(error);
     });
 
-    const handlePictureChange = async (e:any) => {
+
+
+    const handlePictureChange =  async (e:any) => {
         let uploadText = document.getElementById('fileImg');
         uploadText.textContent = e.target.files[0].name;
         
@@ -112,6 +114,19 @@ export const AdminAddAnimalForm = (props:any) => {
             ...animal,
             [e.target.name]: imgBase64
         })
+
+        // const file = e.target.files[0];
+        // const reader = new FileReader();
+        // /* Send image as base64 */
+        // reader.onloadend = () => {
+        //   var b64 = reader.result.replace(/^data:.+;base64,/, '');
+        //   console.log('b64', b64);
+        //     setAnimalState({
+        //         ...animal,
+        //         blob: b64
+        //     })
+        // }; 
+        console.log('DATA:::', animal)
     }
 
     return(

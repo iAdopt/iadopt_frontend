@@ -14,7 +14,7 @@ export const LoginForm = (props:any) => {
         event.preventDefault();
         console.log(user)
         try {
-            await fetch('http://localhost:8080/api/centers/get/login', {
+            await fetch('http://localhost:8080/api/centers/login', {
                 method: 'POST',
                 headers: {
                     'Accept' : 'application/json',

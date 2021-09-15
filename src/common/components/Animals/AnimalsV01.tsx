@@ -19,10 +19,12 @@ console.log('ANIMALS DATA - VISUAL01 :::::',animalsData)
         <div className={styles.animalsV01}>
             {animalsData != undefined && animalsData.length > 0 ? (animalsData.map((animal, i) => (
                 <div key={i} className={styles.animalBoxv01}>
-                        <Link href={{pathname: ROUTE_ANIMAL_ID, query: {id: animal.id}}} >
+                        <Link href={{pathname: ROUTE_ANIMAL_ID, query:{id: animal.id}}} >
                             {/* <a target="_blank"> */}
-                            {animal.blob  ? 
-                                (<div className={styles.photo} style={{backgroundImage: 'url("data:image/*;base64,' + animal.image + '")'}}></div>) : 
+                            {animal.blob  != null ? 
+                            // 
+                            // <div className={styles.photo} style={{backgroundImage:  'url("data:image/*;base64,"' + animal.blob + '")'}}></div>
+                                ( <Image className={styles.photo} src={'data:image/*;base64,'+ animal.blob} width={305} height={181} alt={animal.name}/>) : 
                                 (<Image src={globalImg} width={1} height={180} alt="global"/>)
                             }
                             {/* </a> */}

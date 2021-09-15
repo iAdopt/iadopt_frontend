@@ -9,7 +9,9 @@
         flex-direction: row;
     }
     .photo {
-        height: 382px;        
+        height: 382px;     
+        object-fit: cover;
+   
         @include forTabletUp {
             min-width: 382px;
         }
@@ -85,8 +87,6 @@
         margin: 2px;
     }
 }
-
-
 
 .sectionCenter {
     margin: 80px 42px;

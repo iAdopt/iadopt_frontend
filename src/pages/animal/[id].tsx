@@ -9,7 +9,7 @@ import { actionCreators } from "../../../stateStore/index"
 import { useSelector, useDispatch } from "react-redux"
 import { bindActionCreators } from 'redux';
 import Image from 'next/image'
-import globalImg from '../../../../public/noAnimImg.svg'
+import globalImg from '../../../public/noAnimImg.svg'
 
 
 const SingleAnimalPage = () => {
@@ -20,7 +20,7 @@ const SingleAnimalPage = () => {
     console.log('storeSingleAnimal', storeSingleAnimal)
     
     const SingleAnimalDataFetch = async () => {
-        const response = await fetch(`http://localhost:8080/api/animals/get/byId/${animalId}`);
+        const response = await fetch(`http://localhost:8080/api/animals/byId/${animalId}`);
         const data = await response.json();   
         console.log('Single Animal', data)    
         selectAnimal(data)  
@@ -64,7 +64,7 @@ const SingleAnimalPage = () => {
                     <>
                         <div className={styles.sectionAnimal}>
                             {storeSingleAnimal.blob ? 
-                                (<div className={styles.photo} style={{backgroundImage: 'url("data:image/*;base64,' + storeSingleAnimal.image + '")'}}></div>) : 
+                                (<Image className={styles.photo} src={'data:image/*;base64,'+ storeSingleAnimal.blob} width={382} height={382} alt={storeSingleAnimal.name}/>) : 
                                 (<Image src={globalImg} width={250} height={200} alt="global"/>)
                             }
                             <div className={styles.animalInformation}>

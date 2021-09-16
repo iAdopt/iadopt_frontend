@@ -12,7 +12,6 @@ export const LoginForm = (props:any) => {
 
     const submitForm = async (event:any) => {
         event.preventDefault();
-        console.log(user)
         try {
             await fetch('http://localhost:8080/api/centers/login', {
                 method: 'POST',

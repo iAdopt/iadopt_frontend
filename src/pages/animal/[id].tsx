@@ -22,14 +22,13 @@ const SingleAnimalPage = () => {
     const SingleAnimalDataFetch = async () => {
         const response = await fetch(`http://localhost:8080/api/animals/byId/${animalId}`);
         const data = await response.json();   
-        console.log('Single Animal', data)    
+        console.log('Single Animal DATA::::', data)    
         selectAnimal(data)  
     }
     const SingleAnimalImages = async () => {
         try {
             const response = await fetch(`http://localhost:8080/api/images/${animalId}`);
             const data = await response.json(); 
-            console.log('ANIMAL ID ::: ', animalId) ; 
             selectAnimalImages(data)  
         } catch(error) {
             console.log(error)

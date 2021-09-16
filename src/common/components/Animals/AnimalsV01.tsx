@@ -13,7 +13,7 @@ id
 /* ANIMALS DATA STATE FROM REDUX*/
 const animalsData = useSelector((state) => state.allAnimals[1]);  //get all animals
 const ROUTE_ANIMAL_ID = "/animal/[id]";
-console.log(animalsData)
+console.log('ANIMALS DATA:::', animalsData);
     return(
         <div className={styles.animalsV01}>
             {animalsData != undefined && animalsData.length > 0 ? (animalsData.map((animal:any, i:number) => (

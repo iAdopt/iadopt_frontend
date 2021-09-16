@@ -10,7 +10,6 @@ export const AnimalsV02 = ({
 
 /* ANIMALS DATA STATE FROM REDUX*/
 const animalsData = useSelector((state) => state.allAnimals[1]);  //get all animals
-console.log('ANIMALSDATA', animalsData[0])
     return(
         <div className={styles.animalsV02}>
             {animalsData.map((animal:any, i:number) => (

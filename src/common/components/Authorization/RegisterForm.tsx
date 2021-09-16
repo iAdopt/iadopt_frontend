@@ -17,7 +17,6 @@ export const RegisterForm = (props:any) => {
 
     const submitForm = async (event:any) => {
         event.preventDefault();
-        console.log(user)
         try {
             await fetch('http://localhost:8080/api/centers/register', {
                 method: 'POST',

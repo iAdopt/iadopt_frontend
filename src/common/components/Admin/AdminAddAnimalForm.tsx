@@ -109,7 +109,7 @@ export const AdminAddAnimalForm = (props:any) => {
         const file = e.target.files[0];
         const imgBase64 = await toBase64(file);
         if (imgBase64) {
-            console.log('img', imgBase64)
+            console.log('IMAG IN B64', imgBase64);
             setAnimalState({
                 ...animal,
                 [e.target.name]: imgBase64

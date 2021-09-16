@@ -114,19 +114,6 @@ export const AdminAddAnimalForm = (props:any) => {
             ...animal,
             [e.target.name]: imgBase64
         })
-
-        // const file = e.target.files[0];
-        // const reader = new FileReader();
-        // /* Send image as base64 */
-        // reader.onloadend = () => {
-        //   var b64 = reader.result.replace(/^data:.+;base64,/, '');
-        //   console.log('b64', b64);
-        //     setAnimalState({
-        //         ...animal,
-        //         blob: b64
-        //     })
-        // }; 
-        console.log('DATA:::', animal)
     }
 
     return(

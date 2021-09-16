@@ -1,72 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Roboto+Slab:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Roboto+Slab:wght@300;400;700&display=swap");
 
 /* ---- VARS ---- */
-
 $main-color: #ffd47d;
-$cat-color: #C4E391;
-$dog-color: #E87F7F;
-$all-color: #FFE9AD;
-$center-color: #A5D2D0;
+$cat-color: #c4e391;
+$dog-color: #e87f7f;
+$all-color: #ffe9ad;
+$center-color: #a5d2d0;
 
-$font-1:'Roboto Slab', serif;
-$font-2:'Trebuchet MS', sans-serif;
+$font-1: "Roboto Slab", serif;
+$font-2: "Trebuchet MS", sans-serif;
 $medianil: 16px;
-
 
 /* ---- BREACKPOINTS ---- */
 $breackpoints: (
-    PHONE_MAX_WIDTH             : "767px",
-    TABLET_PORTRAIT_MIN_WIDTH   : "768px",
-    TABLET_PORTRAIT_MAX_WIDTH   : "991px",
-    TABLET_LANDSCAPE_MIN_WIDTH  : "992px",
-    TABLET_LANDSCAPE_MAX_WIDTH  : "1439px",
-    DESKTOP_MIN_WIDTH           : "1440px",
-    DESKTOP_MAX_WIDTH           : "1799px",
-    BIG_DESKTOP_MIN_WIDTH       : "1800px"
+  PHONE_MAX_WIDTH: "767px",
+  TABLET_PORTRAIT_MIN_WIDTH: "768px",
+  TABLET_PORTRAIT_MAX_WIDTH: "991px",
+  TABLET_LANDSCAPE_MIN_WIDTH: "992px",
+  TABLET_LANDSCAPE_MAX_WIDTH: "1439px",
+  DESKTOP_MIN_WIDTH: "1440px",
+  DESKTOP_MAX_WIDTH: "1799px",
+  BIG_DESKTOP_MIN_WIDTH: "1800px",
 );
-
 
 /* phone */
 @mixin forPhoneOnly {
-    @media all and (min-width: 0px) and (max-width: #{map-get($breackpoints, PHONE_MAX_WIDTH)}) {
-        @content;
-    }
+  @media all and (min-width: 0px) and (max-width: #{map-get($breackpoints, PHONE_MAX_WIDTH)}) {
+    @content;
+  }
 }
 @mixin forPhoneUp {
-    @media all and (min-width: #{map-get($breackpoints, PHONE_MAX_WIDTH)}) {
-        @content;
-    }
+  @media all and (min-width: #{map-get($breackpoints, PHONE_MAX_WIDTH)}) {
+    @content;
+  }
 }
-
 
 /* tablet */
 @mixin forTabletOnly {
-    @media all and (min-width: #{map-get($breackpoints, TABLET_PORTRAIT_MIN_WIDTH)}) and (max-width: #{map-get($breackpoints, TABLET_LANDSCAPE_MAX_WIDTH)}) {
-        @content;
-    }
+  @media all and (min-width: #{map-get($breackpoints, TABLET_PORTRAIT_MIN_WIDTH)}) and (max-width: #{map-get($breackpoints, TABLET_LANDSCAPE_MAX_WIDTH)}) {
+    @content;
+  }
 }
 
 @mixin forTabletUp {
-    @media all and (min-width: #{map-get($breackpoints, TABLET_PORTRAIT_MIN_WIDTH)}) {
-        @content;
-    }
+  @media all and (min-width: #{map-get($breackpoints, TABLET_PORTRAIT_MIN_WIDTH)}) {
+    @content;
+  }
 }
-
 
 /* Desktop */
 @mixin forDesktopOnly {
-    @media all and (min-width: #{map-get($breackpoints, DESKTOP_MIN_WIDTH)}) and (max-width: #{map-get($breackpoints, DESKTOP_MAX_WIDTH)}) {
-        @content;
-    }
+  @media all and (min-width: #{map-get($breackpoints, DESKTOP_MIN_WIDTH)}) and (max-width: #{map-get($breackpoints, DESKTOP_MAX_WIDTH)}) {
+    @content;
+  }
 }
 @mixin forDesktopUp {
-    @media all and (min-width: #{map-get($breackpoints, DESKTOP_MIN_WIDTH)}) {
-        @content;
-    }
+  @media all and (min-width: #{map-get($breackpoints, DESKTOP_MIN_WIDTH)}) {
+    @content;
+  }
 }
 
 @mixin forBigDesktopUp {
-    @media all and (min-width: #{map-get($breackpoints, BIG_DESKTOP_MIN_WIDTH)}) {
-        @content;
-    }
+  @media all and (min-width: #{map-get($breackpoints, BIG_DESKTOP_MIN_WIDTH)}) {
+    @content;
+  }
 }

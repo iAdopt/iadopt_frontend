@@ -1,67 +1,65 @@
-@import 'global.scss';
+@import "global.scss";
 
-.main, .container {
-    width: 100%;
-    min-height: 100vh;
-    height: 100%;
-    background-color: $main-color;
-    @include forPhoneUp {
-        background-color: white;
-    }
+.main,
+.container {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  background-color: $main-color;
+  @include forPhoneUp {
+    background-color: white;
+  }
 }
 
 .home_section {
-    padding: $medianil;
+  padding: $medianil;
+  @include forTabletUp {
+    background-color: $main-color;
+    height: 715px;
+    padding: $medianil * 2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .text {
+    padding: $medianil $medianil;
+    text-align: left;
+    p {
+      font-family: $font-1;
+      font-size: $medianil;
+    }
     @include forTabletUp {
-        background-color: $main-color;
-        height: 715px;
-        padding: $medianil * 2;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      padding: $medianil $medianil * 3;
+      margin-top: 60px;
+      p {
+        font-size: $medianil * 1.9;
+      }
     }
-    .text {
-        padding: $medianil $medianil;
-        text-align: left;
-        p {
-            font-family: $font-1;
-            font-size: $medianil;
-        }
-        @include forTabletUp {
-            padding: $medianil $medianil * 3;
-            margin-top: 60px;
-            p {
-                font-size: $medianil * 1.9;    
-            }
-        }
-        @include forTabletOnly {
-            max-width: 80%;
-
-        }
-        @include forDesktopUp {
-            max-width: 50%;
-            margin-bottom: 100px;
-
-        }
-
+    @include forTabletOnly {
+      max-width: 80%;
     }
-    .description {
-        text-align: center;
-        font-family: $font-1;
-        font-size: $medianil * 1.4;
-        @include forTabletUp {
-            font-size: $medianil * 2.5;
-        }
+    @include forDesktopUp {
+      max-width: 50%;
+      margin-bottom: 100px;
     }
+  }
+  .description {
+    text-align: center;
+    font-family: $font-1;
+    font-size: $medianil * 1.4;
+    @include forTabletUp {
+      font-size: $medianil * 2.5;
+    }
+  }
 }
 
 .linkboxes {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    @include forTabletUp {
-        margin-top: -120px;
-        margin-bottom: 150px;
-        z-index: 1;
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  @include forTabletUp {
+    margin-top: -120px;
+    margin-bottom: 150px;
+    z-index: 1;
+  }
 }

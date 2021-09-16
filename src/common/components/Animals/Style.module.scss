@@ -1,185 +1,177 @@
-@import '../../../styles/global.scss';
+@import "../../../styles/global.scss";
 
 .animalsV01 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include forTabletUp {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .animalBoxv01 {
+    width: 307px;
+    height: 277px;
+    background: #f9f9f9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    margin: 6px;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    @include forTabletUp { 
-        flex-direction: row;
-        flex-wrap: wrap;
+    padding-top: 3px;
+    z-index: 1;
+    &:hover {
+      background: rgba(251, 246, 214, 0.811);
+      box-shadow: 1px 1px 10px -8px #ff8080, -10px 3px 10px -7px #ffe488,
+        -9px -7px 10px -8px #8cff85, 10px -7px 10px -8px #80c7ff,
+        10px 8px 10px -8px #e488ff, -6px 8px 10px -8px #ff616b,
+        -1px -9px 10px -8px #8e5cff;
+      //box-shadow: 0px 0px 12px 0px  $main-color;
     }
-    .animalBoxv01 {
-        width: 307px;
-        height: 277px;
-        background: #F9F9F9;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 24px;
-        margin: 6px;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        padding-top: 3px;
-        z-index: 1;
-        &:hover {
-            background: rgba(251, 246, 214, 0.811);
-            box-shadow: 1px 1px 10px -8px #FF8080, -10px 3px 10px -7px #FFE488, -9px -7px 10px -8px #8CFF85, 10px -7px 10px -8px #80C7FF, 10px 8px 10px -8px #E488FF, -6px 8px 10px -8px #FF616B, -1px -9px 10px -8px #8E5CFF;
-            //box-shadow: 0px 0px 12px 0px  $main-color;
-
+    .identification {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-right: 10px;
+      h3 {
+        padding-left: 10px;
+        margin: 6px 0;
+      }
+      div {
+        padding: 2px 7px 3px 7px;
+        border-radius: 7px;
+        &.labelUrgent {
+          background-color: $dog-color;
         }
-        .identification {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-right: 10px;
-            h3 {
-                padding-left: 10px;
-                margin: 6px 0;
-            }
-            div {
-                padding: 2px 7px 3px 7px;
-                border-radius: 7px;
-                &.labelUrgent {
-                    background-color: $dog-color;
-                }
-                &.labelNew {
-                    background-color: $cat-color;
-                }
-            }
+        &.labelNew {
+          background-color: $cat-color;
         }
-
-        .photo {
-            // width: 305px;
-            // height: 181px;
-            mix-blend-mode: normal;
-            border: 2px solid #fff;
-            box-sizing: border-box;
-            border-radius: 24px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            object-fit: cover;
-        }
-        .animalBoxInfo {
-            display: flex;
-            p {
-                margin: 0;
-                padding-left: 10px;
-            }
-        }
+      }
     }
+
+    .photo {
+      mix-blend-mode: normal;
+      box-sizing: border-box;
+      border-radius: 24px;
+      object-fit: cover;
+    }
+    .animalBoxInfo {
+      display: flex;
+      p {
+        margin: 0;
+        padding-left: 10px;
+      }
+    }
+  }
 }
 
 .animalsV02 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include forTabletUp {
+    align-items: unset;
+  }
+  .animalBoxv02 {
     display: flex;
     flex-direction: column;
+    background: #f9f9f9;
     justify-content: center;
     align-items: center;
-    @include forTabletUp { 
-        align-items:unset;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    margin: 6px;
+    height: auto;
+    width: 259px;
+    @include forTabletUp {
+      height: 257px;
+      flex-direction: row;
+      flex-grow: 1;
+      width: auto;
     }
-    .animalBoxv02 {
+    .photo {
+      object-fit: cover;
+      mix-blend-mode: normal;
+      box-sizing: border-box;
+      border-radius: 24px;
+    }
+    .animalBoxInfo {
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-grow: 1;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      h3 {
+        font-size: 24px;
+        @include forDesktopUp {
+          margin-top: -30px;
+          margin-bottom: 40px;
+        }
+      }
+      h4 {
+        font-size: 16px;
+      }
+      p {
+        font-size: 14px;
+      }
+      div {
+        max-width: 275px;
+      }
+      .identification {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 10px;
+        h3 {
+          margin-right: 10px;
+        }
+        span {
+          padding: 2px 7px 3px 7px;
+          border-radius: 7px;
+          @include forDesktopUp {
+            margin-top: -30px;
+            margin-bottom: 40px;
+          }
+          &.labelUrgent {
+            background-color: $dog-color;
+          }
+          &.labelNew {
+            background-color: $cat-color;
+          }
+        }
+      }
+      .tags:not(:empty) {
+        background-color: $center-color;
+        padding: 2px 10px;
+        border-radius: 8px;
+        display: inline-block;
+        margin: 2px;
+      }
+      .buttonsBox {
         display: flex;
         flex-direction: column;
-        background: #F9F9F9;
         justify-content: center;
-        align-items:center;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 24px;
-        margin: 6px;
-        height: auto;
-        width: 259px;
-        @include forTabletUp { 
-            height: 257px;
-            flex-direction: row;
-            flex-grow: 1;
-            width: auto;
+        align-items: center;
+        button {
+          width: 155px;
+          height: 40px;
+          background: #ffdc97;
+          border: 1px solid #ffcd6b;
+          box-sizing: border-box;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 10px;
+          margin-bottom: 10px;
+          cursor: pointer;
+          font-weight: bold;
+          font-size: 14px;
+          &:hover {
+            background-color: #f6bd4f;
+          }
         }
-        .photo {
-            // width: 257px;
-            // height: 257px;
-            object-fit: cover;
-            mix-blend-mode: normal;
-            border: 3px solid #FFFFFF;
-            box-sizing: border-box;
-            border-radius: 24px;
-            background-size: cover;
-            background-position: center;
-        }
-        .animalBoxInfo {
-            padding: 0 20px ;
-            display: flex;
-            justify-content:space-between;
-            flex-grow: 1;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            h3 {
-                font-size: 24px;
-                @include forDesktopUp {
-                    margin-top: -30px;
-                    margin-bottom: 40px;
-                }
-            }
-            h4 {
-                font-size: 16px;
-            }
-            p {
-                font-size: 14px;
-            }
-            div {
-                max-width: 275px;
-            }
-            .identification {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin-right: 10px;
-                h3 {
-                    margin-right: 10px;
-                }
-                span {
-                    padding: 2px 7px 3px 7px;
-                    border-radius: 7px;
-                    @include forDesktopUp {
-                        margin-top: -30px;
-                        margin-bottom: 40px;
-                    }
-                    &.labelUrgent {
-                        background-color: $dog-color;
-                    }
-                    &.labelNew {
-                        background-color: $cat-color;
-                    }
-                }
-            }
-            .tags:not(:empty) {
-                background-color: $center-color;
-                padding: 2px 10px;
-                border-radius: 8px;
-                display: inline-block;
-                margin: 2px;
-            }
-            .buttonsBox {
-                display: flex;
-                flex-direction:column;
-                justify-content: center;
-                align-items: center;
-                button {
-                    width: 155px;
-                    height: 40px;
-                    background: #FFDC97;
-                    border: 1px solid #FFCD6B;
-                    box-sizing: border-box;
-                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                    border-radius: 10px;
-                    margin-bottom: 10px;
-                    cursor: pointer;
-                    font-weight: bold;
-                    font-size: 14px;
-                    &:hover {
-                        background-color: #F6BD4F;
-                    }
-                }
-            }
-        }
+      }
     }
+  }
 }

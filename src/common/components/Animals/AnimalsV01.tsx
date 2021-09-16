@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/link-passhref */
 import { useSelector } from "react-redux"
 import styles from './Style.module.scss';
 import Link from 'next/link'
@@ -11,7 +10,6 @@ import comarcas from '../../utils/comarcas/comarcas.json';
 export const AnimalsV01 = ({
 id
 }:any) => {
-
 /* ANIMALS DATA STATE FROM REDUX*/
 const animalsData = useSelector((state) => state.allAnimals[1]);  //get all animals
 const ROUTE_ANIMAL_ID = "/animal/[id]";
@@ -20,12 +18,12 @@ const ROUTE_ANIMAL_ID = "/animal/[id]";
         <div className={styles.animalsV01}>
             {animalsData != undefined && animalsData.length > 0 ? (animalsData.map((animal, i) => (
                 <div key={i} className={styles.animalBoxv01}>
-                        <Link passHref={true} href={{pathname: ROUTE_ANIMAL_ID, query:{id: animal.id}}} >
+                        <Link href={{pathname: ROUTE_ANIMAL_ID, query:{id: animal.id}}} >
                             {/* <a target="_blank"> */}
-                            {animal.blob  != null ? 
-                                (<Image className={styles.photo} src={'data:image/*;base64,'+ animal.blob} width={305} height={181} alt={animal.name}/>) : 
-                                (<Image src={globalImg} width={1} height={180} alt="global"/>)
-                            }
+                                {animal.blob  != null ? 
+                                    (<div style={{border: '2px solid #fff', borderRadius: '24px'}}><Image className={styles.photo} src={'data:image/*;base64,'+ animal.blob} width={305} height={181} alt={animal.name}/></div>) : 
+                                    (<Image src={globalImg} width={1} height={180} alt="global"/>)
+                                }
                             {/* </a> */}
                         </Link>
                         <div className={styles.identification}>
@@ -35,16 +33,14 @@ const ROUTE_ANIMAL_ID = "/animal/[id]";
                         <div className={styles.animalBoxInfo}>
                             <p>{animal.years !== 0 ? ` ${animal.years} año(s) |` : `${animal.months} meses |`}</p> {/* Pending to get years and months  */}                            
                             <p>{animal.gender == 'female' ? '♀ Hembra' : '♂ Macho'} |</p>
-                            {Object.entries(comarcas).map(comarca => {
-                                animal.location == comarca.keys ? (<p>{animal.location}</p>) : (<></>)
+                            { Object.entries(comarcas).forEach(comarca => {
+                                (parseInt(comarca[0]) == animal.location) ? <p>{comarca[1]}</p> : ''
                             })}
-                            
                         </div>
                 </div>          
             ))) : (<div>Loading...</div>)}
-        {/* <p>{animal.age != 0 ? `${animal.age} año(s)` : (`${animal.age} meses`)}</p> */}
        </div> 
     )
- }
+}
       
 

@@ -17,7 +17,7 @@ console.log('ANIMALSDATA', animalsData[0])
                 <div key={i} className={styles.animalBoxv02}>
                     {/* <div className={styles.photo} style={{backgroundImage: "url(data:image/jpeg;base64," + animal.image + ")"}}></div> */}
                     {animal.blob ? 
-                        (<Image className={styles.photo} src={'data:image/*;base64,'+ animal.blob} width={257} height={257} alt={animal.name}/>) : 
+                        (<div style={{border: '2px solid #fff', borderRadius: '24px'}}><Image className={styles.photo} src={'data:image/*;base64,'+ animal.blob} width={257} height={257} alt={animal.name}/></div>) : 
                         (<Image src={globalImg} width={250} height={200} alt="global"/>)
                     }
                     <div className={styles.animalBoxInfo}>

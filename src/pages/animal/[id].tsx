@@ -18,9 +18,6 @@ const SingleAnimalPage = () => {
     const {selectAnimal, selectAnimalImages} = bindActionCreators(actionCreators, useDispatch());
     const storeSingleAnimal = useSelector((state) => state.singleAnimal[1]);
     const storeSingleAnimalImages = useSelector((state) => state.singleAnimalImages[1]);
-
-
-    console.log('storeSingleAnimal', storeSingleAnimal)
     
     const SingleAnimalDataFetch = async () => {
         const response = await fetch(`http://localhost:8080/api/animals/byId/${animalId}`);
@@ -29,15 +26,21 @@ const SingleAnimalPage = () => {
         selectAnimal(data)  
     }
     const SingleAnimalImages = async () => {
-        const response = await fetch(`http://localhost:8080/api/images/${animalId}`);
-        const data = await response.json();   
-        selectAnimalImages(data)  
+        try {
+            const response = await fetch(`http://localhost:8080/api/images/${animalId}`);
+            const data = await response.json(); 
+            console.log('ANIMAL ID ::: ', animalId) ; 
+            selectAnimalImages(data)  
+        } catch(error) {
+            console.log(error)
+        }
+
     }
  
     useEffect(() => {
         SingleAnimalDataFetch();
         SingleAnimalImages();
-    }, []);
+    }, [animalId]);
     
     //const MAP_MODE = place;
     //const IFRAME_MAP_URL = `https://www.google.com/maps/embed/v1/${MAP_MODE}?key=YOUR_API_KEY&PARAMETERS`
@@ -52,8 +55,8 @@ const SingleAnimalPage = () => {
                     {storeSingleAnimal != undefined ? (
                     <>
                         <div className={styles.sectionAnimal}>
-                            {storeSingleAnimalImages ? 
-                                (<Image className={styles.photo} src={'data:image/*;base64,'+ storeSingleAnimalImages[0].blob} width={382} height={382} alt={storeSingleAnimal.name}/>) : 
+                            { Array.isArray(storeSingleAnimalImages) && storeSingleAnimalImages.length ? 
+                                (<Image className={styles.photo} src={'data:image/*;base64,'+ storeSingleAnimalImages[0]?.blob} width={382} height={382} alt={storeSingleAnimal.name}/>) : 
                                 (<Image src={globalImg} width={250} height={200} alt="global"/>)
                             }
                             <div className={styles.animalInformation}>

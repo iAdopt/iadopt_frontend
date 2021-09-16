@@ -15,3 +15,12 @@ export const selectAnimal = (selectAnimal) => {
         })
     }
 }
+
+export const selectAnimalImages = (selectAnimalImages) => {
+    return (dispatch) => {
+        dispatch({
+            type: "SELECTED_ANIMAL_IMAGES",
+            payload:selectAnimalImages
+        })
+    }
+}

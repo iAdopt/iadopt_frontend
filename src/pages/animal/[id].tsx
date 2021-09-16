@@ -15,8 +15,11 @@ import globalImg from '../../../public/noAnimImg.svg'
 const SingleAnimalPage = () => {
     const router = useRouter();
     const animalId = router.query.id;
-    const {selectAnimal} = bindActionCreators(actionCreators, useDispatch());
+    const {selectAnimal, selectAnimalImages} = bindActionCreators(actionCreators, useDispatch());
     const storeSingleAnimal = useSelector((state) => state.singleAnimal[1]);
+    const storeSingleAnimalImages = useSelector((state) => state.singleAnimalImages[1]);
+
+
     console.log('storeSingleAnimal', storeSingleAnimal)
     
     const SingleAnimalDataFetch = async () => {
@@ -25,33 +28,19 @@ const SingleAnimalPage = () => {
         console.log('Single Animal', data)    
         selectAnimal(data)  
     }
-
-    const dataExampleAnimal = {
-            "id": 1,
-            "name": "Arlo",
-            "age": "3 años",
-            "type": "DOG",
-            "location": "Barcelona",
-            "gender": "male",
-            "image": "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg",
-            "description": "Just like for humans, the five senses play an important role in helping felines understand their surroundings. But the way cats use those senses is often very different than how we do.",
-            "medicalInfo": {
-                "vaccination": true,
-                "sterilized": false,
-                "chip": true,
-                "other": "El animal no tiene otras patologías"
-            },
-            "character": ["Sociable", "Bien con otros gatos", "Tranquilo"],
-            "center": "Protectora SPAM Mataró"
-    };
+    const SingleAnimalImages = async () => {
+        const response = await fetch(`http://localhost:8080/api/images/${animalId}`);
+        const data = await response.json();   
+        selectAnimalImages(data)  
+    }
  
     useEffect(() => {
         SingleAnimalDataFetch();
-    }, [animalId]);
+        SingleAnimalImages();
+    }, []);
     
     //const MAP_MODE = place;
     //const IFRAME_MAP_URL = `https://www.google.com/maps/embed/v1/${MAP_MODE}?key=YOUR_API_KEY&PARAMETERS`
-
     return(
         <>
             <Head>
@@ -63,8 +52,8 @@ const SingleAnimalPage = () => {
                     {storeSingleAnimal != undefined ? (
                     <>
                         <div className={styles.sectionAnimal}>
-                            {storeSingleAnimal.blob ? 
-                                (<Image className={styles.photo} src={'data:image/*;base64,'+ storeSingleAnimal.blob} width={382} height={382} alt={storeSingleAnimal.name}/>) : 
+                            {storeSingleAnimalImages ? 
+                                (<Image className={styles.photo} src={'data:image/*;base64,'+ storeSingleAnimalImages[0].blob} width={382} height={382} alt={storeSingleAnimal.name}/>) : 
                                 (<Image src={globalImg} width={250} height={200} alt="global"/>)
                             }
                             <div className={styles.animalInformation}>

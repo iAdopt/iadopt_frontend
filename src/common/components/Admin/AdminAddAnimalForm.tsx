@@ -102,18 +102,19 @@ export const AdminAddAnimalForm = (props:any) => {
         reader.onerror = error => reject(error);
     });
 
-
-
     const handlePictureChange =  async (e:any) => {
         let uploadText = document.getElementById('fileImg');
         uploadText.textContent = e.target.files[0].name;
         
         const file = e.target.files[0];
         const imgBase64 = await toBase64(file);
-        setAnimalState({
-            ...animal,
-            [e.target.name]: imgBase64
-        })
+        if (imgBase64) {
+            console.log('img', imgBase64)
+            setAnimalState({
+                ...animal,
+                [e.target.name]: imgBase64
+            })
+        } 
     }
 
     return(

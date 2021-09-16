@@ -13,14 +13,14 @@ id
 /* ANIMALS DATA STATE FROM REDUX*/
 const animalsData = useSelector((state) => state.allAnimals[1]);  //get all animals
 const ROUTE_ANIMAL_ID = "/animal/[id]";
-
+console.log(animalsData)
     return(
         <div className={styles.animalsV01}>
-            {animalsData != undefined && animalsData.length > 0 ? (animalsData.map((animal, i) => (
+            {animalsData != undefined && animalsData.length > 0 ? (animalsData.map((animal:any, i:number) => (
                 <div key={i} className={styles.animalBoxv01}>
                         <Link href={{pathname: ROUTE_ANIMAL_ID, query:{id: animal.id}}} >
                             {/* <a target="_blank"> */}
-                                {animal.blob  != null ? 
+                                {animal.blob != null && animal.blob != "" ? 
                                     (<div style={{border: '2px solid #fff', borderRadius: '24px'}}><Image className={styles.photo} src={'data:image/*;base64,'+ animal.blob} width={305} height={181} alt={animal.name}/></div>) : 
                                     (<Image src={globalImg} width={1} height={180} alt="global"/>)
                                 }

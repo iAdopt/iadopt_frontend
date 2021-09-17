@@ -33,9 +33,7 @@ console.log('ANIMALS DATA:::', animalsData);
                         <div className={styles.animalBoxInfo}>
                             <p>{animal.years !== 0 ? ` ${animal.years} año(s) |` : `${animal.months} meses |`}</p> {/* Pending to get years and months  */}                            
                             <p>{animal.gender == 'female' ? '♀ Hembra' : '♂ Macho'} |</p>
-                            { Object.entries(comarcas).forEach(comarca => {
-                                (parseInt(comarca[0]) == animal.location) ? <p>{comarca[1]}</p> : ''
-                            })}
+                            { Object.entries(comarcas).map(comarca => (animal.location && parseInt(comarca[0]) == animal.location) ? <p>{comarca[1]}</p> : '')}
                         </div>
                 </div>          
             ))) : (<div>Loading...</div>)}

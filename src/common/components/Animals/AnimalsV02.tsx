@@ -1,7 +1,9 @@
 import {useSelector} from "react-redux"
 import styles from './Style.module.scss';
 import Image from 'next/image'
-import globalImg from '../../../../public/noAnimImg.svg'
+import globalImg from '../../../../public/noAnimImg.svg';
+import comarcas from '../../utils/comarcas/comarcas.json';
+
 
       
 export const AnimalsV02 = ({
@@ -45,7 +47,9 @@ const animalsData = useSelector((state) => state.allAnimals[1]);  //get all anim
                         </div>
                         <div>
                             <h4>Contacto</h4>
-                            <p><b>Localización:</b>{animal.location}</p>
+                            <p><b>Localización:</b></p>
+                            { Object.entries(comarcas).map(comarca => (animal.location && parseInt(comarca[0]) == animal.location) ? <p>{comarca[1]}</p> : '')}
+
                         </div>
                         <div className={styles.buttonsBox}>
                             <button> Quiero adoptar a {animal.name}! </button>

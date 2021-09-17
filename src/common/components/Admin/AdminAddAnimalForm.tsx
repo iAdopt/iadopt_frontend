@@ -36,40 +36,24 @@ export const AdminAddAnimalForm = (props:any) => {
                 },
                 body: JSON.stringify(animal)
             });
-            setAnimalState({
-                species: "",
-                name: "",
-                gender: "",
-                birthdate: "",
-                description: "",
-                vaccinated: "",
-                sterilized: "",
-                identified: "",
-                issues: "",
-                blob: "",
-                status: "",
-                center:"0c266122-e95f-4a7c-88b6-5794c281896a",
-                tags: ["Adoptable"]
-            })
-
         } catch(error) {
             console.error('Error to submit information:', error)
-            setAnimalState({
-                species: "",
-                name: "",
-                gender: "",
-                birthdate: "",
-                description: "",
-                vaccinated: "",
-                sterilized: "",
-                identified: "",
-                issues: "",
-                blob: "",
-                status: "",
-                center: '0c266122-e95f-4a7c-88b6-5794c281896a',
-                tags: ["Adoptable"]
-            })
         }
+        setAnimalState({
+            species: "",
+            name: "",
+            gender: "",
+            birthdate: "",
+            description: "",
+            vaccinated: "",
+            sterilized: "",
+            identified: "",
+            issues: "",
+            blob: "",
+            status: "",
+            center:"0c266122-e95f-4a7c-88b6-5794c281896a",
+            tags: ["Adoptable"]
+        })
     }
 
     const handleChange = (e:any) => {
